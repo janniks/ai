@@ -5,6 +5,12 @@ description: Turn a spec into a multi-phase implementation plan using tracer-bul
 
 import { SkillSource } from '@/components/skill-source';
 
+- Turns a spec into tracer-bullet phases — each one cuts schema → API → UI → tests.
+- Pulls durable decisions (routes, schema, models, authn/authz) above the phases.
+- Prefers many thin slices over a few thick ones; each phase is demoable end-to-end.
+- Checks phase granularity with you before writing.
+- Saves to `./plans/<feature>.md` with an inline phase log for tracking commits.
+
 ### Skill Source
 
 <SkillSource name="create-plan" />
