@@ -3,14 +3,14 @@
 Install the whole collection:
 
 ```bash
-npx skills add janniks/janniks-ai
+npx skills add janniks/ai
 ```
 
 Or a single skill:
 
 ```bash
-npx skills add janniks/janniks-ai/create-spec
-npx skills add janniks/janniks-ai/create-plan
+npx skills add janniks/ai/create-spec
+npx skills add janniks/ai/create-plan
 ```
 
 Docs: [`web/`](./web) (Fumadocs).

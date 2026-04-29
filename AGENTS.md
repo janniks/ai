@@ -29,7 +29,7 @@ description: Generic agent management — file conventions, dirs, and the spec�
 
 ### Skills
 
-- `/create-spec`, `/create-plan` — local forks under [`skills/`](./skills), installed via `npx skills add janniks/janniks-ai`.
+- `/create-spec`, `/create-plan` — local forks under [`skills/`](./skills), installed via `npx skills add janniks/ai`.
 - Other skills (grill-me, tdd, write-pr-description, improve-codebase-architecture, firecrawl-\*) come from upstream.
 
 ## This repo
