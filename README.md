@@ -1,45 +1,54 @@
 # janniks-ai
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+A personal collection of [Agent Skills](https://agentskills.io/) — portable, version-controlled folders that extend AI coding agents (Claude Code, Cursor, Codex, etc.) with specialized knowledge and workflows.
 
-Run development server:
+The companion documentation site lives in [`web/`](./web) (Fumadocs).
+
+## Installation
 
 ```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
+npx skills add janniks/janniks-ai
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+See [skills.sh/docs](https://skills.sh/docs) for the `skills` CLI.
 
-## Explore
+## Available Skills
 
-In the project, you can see:
+_None yet — see [AGENTS.md](./AGENTS.md) for how to add one._
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+## Repository Layout
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+```
+.
+├── skills/      # Agent Skills, one folder per skill
+├── web/         # Fumadocs documentation site
+├── AGENTS.md    # Guide for agents authoring skills here
+└── README.md
+```
 
-### Fumadocs MDX
+## Skill Format
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+Each skill is a folder under `skills/` containing at minimum a `SKILL.md` with frontmatter:
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+```markdown
+---
+name: my-skill
+description: One sentence describing when to use this skill, including trigger phrases.
+---
 
-## Learn More
+# My Skill
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+Instructions for the agent…
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+Optional bundled resources:
+
+- `scripts/` — executable helpers
+- `references/` — supporting documentation
+- `assets/` — templates, fixtures
+
+See the [Agent Skills specification](https://agentskills.io/specification) for the full format.
+
+## License
+
+MIT
