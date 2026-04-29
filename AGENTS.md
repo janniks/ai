@@ -1,3 +1,8 @@
+---
+title: Flow
+description: Generic agent management — file conventions, dirs, and the spec→plan→implement workflow.
+---
+
 # AGENTS.md
 
 ## Generic agent management

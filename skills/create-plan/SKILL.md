@@ -1,4 +1,5 @@
 ---
+title: create-plan
 name: create-plan
 description: Turn a spec into a multi-phase implementation plan using tracer-bullet vertical slices, saved to ./plans/<feature>.md. Use when user wants to break down a spec, create an implementation plan, or mentions "tracer bullets".
 ---

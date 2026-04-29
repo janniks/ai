@@ -1,4 +1,5 @@
 ---
+title: create-spec
 name: create-spec
 description: Create a spec through user interview, codebase exploration, and module design, then save to ./specs/<feature>.md. Use when user wants to write a spec or plan a new feature.
 ---
