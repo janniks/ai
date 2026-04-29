@@ -4,20 +4,29 @@ import {
   frontmatterSchema,
   metaSchema,
 } from 'fumadocs-mdx/config';
+import rehypeRaw from 'rehype-raw';
 
-// You can customise Zod schemas for frontmatter and `meta.json` here
-// see https://fumadocs.dev/docs/mdx/collections#define-docs
 export const docs = defineDocs({
-  docs: {
-    schema: frontmatterSchema,
-  },
-  meta: {
-    schema: metaSchema,
-  },
+  docs: { schema: frontmatterSchema },
+  meta: { schema: metaSchema },
 });
 
 export default defineConfig({
   mdxOptions: {
-    // MDX options
+    rehypePlugins: (v) => [
+      [
+        rehypeRaw,
+        {
+          passThrough: [
+            'mdxJsxFlowElement',
+            'mdxJsxTextElement',
+            'mdxFlowExpression',
+            'mdxTextExpression',
+            'mdxjsEsm',
+          ],
+        },
+      ],
+      ...v,
+    ],
   },
 });
