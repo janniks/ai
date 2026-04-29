@@ -1,28 +1,30 @@
-# deps
-/node_modules
-
-# generated content
-.contentlayer
-.content-collections
-.source
-
-# test & build
-/coverage
-/.next/
-/out/
-/build
-*.tsbuildinfo
-
-# misc
+# macOS
 .DS_Store
-*.pem
-/.pnp
-.pnp.js
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Node
+node_modules
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# others
+# Env
+.env
+.env.local
 .env*.local
-.vercel
-next-env.d.ts
