@@ -1,85 +1,33 @@
 # AGENTS.md
 
-Guidance for AI coding agents working in this repository.
+## Generic agent management
 
-## Repository Overview
+### Format
 
-A personal collection of [Agent Skills](https://agentskills.io/) — packaged instructions and resources that extend agent capabilities. Distributed via `npx skills add janniks/janniks-ai`.
+- All work in md files, in-repo. No GitHub issues unless explicitly asked.
+- Short bullets, few full sentences. Readable at 1/4 desktop width or on mobile.
+- Commit after each meaningful change. Conventional commits.
 
-The `web/` subdirectory contains an unrelated Fumadocs documentation site and is part of the monorepo. Do not place skills inside `web/`.
+### Dirs
 
-## Creating a New Skill
+- `specs/` — feature intent (problem, stories, decisions). 1:1 by name with `plans/`. In-progress drafts suffixed `-DRAFT.md`.
+- `plans/` — phased implementation. Active plan suffixed `-RUNNING.md` (contains an inline phase-log table).
+- `notes/` — flat, unstructured scratchpad. One thought per file. Revisit only on request.
+- `docs/` — stable reference (style guide, architecture).
 
-### Directory Structure
+### Flow
 
-```
-skills/
-  {skill-name}/         # kebab-case
-    SKILL.md            # required
-    scripts/            # optional executable helpers
-    references/         # optional supporting docs
-    assets/             # optional templates/fixtures
-```
+- `/grill-me` → `/create-spec` → `/create-plan` → implement phase-by-phase → commit per phase.
+- In-progress artifacts are suffixed: `specs/<feature>-DRAFT.md` while interviewing, `plans/<feature>-RUNNING.md` while implementing. Rename back (drop the suffix) on finalize / completion.
+- Tick acceptance criteria and append a phase-log row inside the `-RUNNING.md` plan after each commit.
+- Deferred items: front-matter `status: deferred` on whatever file fits. No dedicated dir.
 
-### Naming
+### Skills
 
-- Skill directory: `kebab-case` (e.g., `react-best-practices`)
-- File must be exactly `SKILL.md` (uppercase)
-- Scripts: `kebab-case.sh` / `.ts` / `.py`
+- `/create-spec`, `/create-plan` — local forks under [`skills/`](./skills), installed via `npx skills add janniks/janniks-ai`.
+- Other skills (grill-me, tdd, write-pr-description, improve-codebase-architecture, firecrawl-\*) come from upstream.
 
-### SKILL.md Format
+## This repo
 
-```markdown
----
-name: skill-name
-description: One sentence describing when this skill applies. Include trigger phrases ("Deploy my app", "Review accessibility", etc.) so agents activate it on the right tasks.
-license: MIT
-metadata:
-  author: janniks
-  version: "1.0.0"
----
-
-# Skill Title
-
-Brief description of what the skill does and when to apply it.
-
-## When to Apply
-
-Concrete situations that should trigger this skill.
-
-## Instructions
-
-Step-by-step guidance for the agent.
-
-## References
-
-Link to deeper material in `references/` (one level deep).
-```
-
-### Context Efficiency
-
-Skills load via **progressive disclosure**: only `name` + `description` load at startup; the full `SKILL.md` loads only when activated; bundled files load on demand.
-
-- Keep `SKILL.md` under ~500 lines — push detail into `references/`
-- Write specific descriptions with trigger phrases — vague descriptions = wrong activations
-- Prefer scripts over inline code — script *execution* output is what consumes context, not the script body
-- File references work one level deep from `SKILL.md`
-
-### Scripts
-
-- `#!/bin/bash` shebang, `set -euo pipefail`
-- Status messages to stderr, machine-readable output to stdout
-- Clean up temp files with a trap
-
-## Adding a Skill — Checklist
-
-1. Create `skills/{skill-name}/SKILL.md` with valid frontmatter
-2. Add bundled `scripts/` / `references/` as needed
-3. Add a row for the skill in [`README.md`](./README.md) under "Available Skills"
-4. (Optional) document it in `web/`
-
-## What Not to Do
-
-- Don't put skill content inside `web/` — that's the docs site
-- Don't add a skill without a `description` containing concrete trigger phrases
-- Don't commit `.env*`, `node_modules/`, or `.DS_Store`
+- `skills/` — agent skills we manage. Each is a folder with a `SKILL.md`.
+- `web/` — Fumadocs site documenting this flow and the skills. Source of truth — README links here.
