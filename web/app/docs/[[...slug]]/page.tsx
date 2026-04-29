@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
+import { SkillInstall } from '@/components/skill-install';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
@@ -22,6 +23,9 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
+        {params.slug?.[0] === 'skills' && params.slug[1] ? (
+          <SkillInstall name={params.slug[1]} />
+        ) : null}
         <MDXContent
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
