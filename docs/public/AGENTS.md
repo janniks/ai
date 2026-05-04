@@ -1,6 +1,6 @@
 # AGENTS.md
 
-## Development Philosophy
+## Development philosophy
 
 > **Simple made easy.** Rich Hickey / Steve Jobs style. Every change should make the system simpler, not just add to it.
 
@@ -11,7 +11,7 @@
 - No over-engineering, no speculative features
 - If it's not clearly needed right now, don't build it
 
-### Agent Format
+### Agent format
 
 - All work in md files, in-repo. No GitHub issues unless explicitly asked.
 - Short bullets, few full sentences. Readable at 1/4 desktop width or on mobile.
@@ -30,20 +30,41 @@
 - Tick acceptance criteria and append a phase-log row inside the `-RUNNING.md` plan after each commit.
 - Deferred items: front-matter `status: deferred` on whatever file fits. No dedicated dir.
 
-### Style Guide
+### Style guide (example: TypeScript)
 
-#### General Principles (Example of TypeScript)
+#### General principles
 
 - Keep things in one function unless composable or reusable
 - Avoid try/catch where possible
 - Avoid using the `any` type
-- Prefer single-word variable names where possible
-- Rely on type inference; avoid explicit type annotations unless necessary for exports or clarity
-- Prefer functional array methods (`flatMap`, `filter`, `map`) over for loops
-- Prefer `const` over `let`. Use ternaries or early returns instead of reassignment
-- Avoid `else` statements. Prefer early returns
-- Avoid unnecessary destructuring. Use dot notation to preserve context
-- Reduce variable count by inlining when a value is only used once
+- Prefer single word variable names where possible
+- Rely on type inference when possible; avoid explicit type annotations or interfaces unless necessary for exports or clarity
+- Prefer functional array methods (`flatMap`, `filter`, `map`) over for loops; use type guards on filter to maintain type inference downstream
+
+#### Naming
+
+Prefer single word names for variables and functions. Only use multiple words if necessary.
+
+> THIS RULE IS MANDATORY FOR AGENT WRITTEN CODE.
+
+- Use single word names by default for new locals, params, and helper functions.
+- Multi-word names are allowed only when a single word would be unclear or ambiguous.
+- Do not introduce new camelCase compounds when a short single-word alternative is clear.
+- Before finishing edits, review touched lines and shorten newly introduced identifiers where possible.
+- Good short names to prefer: `pid`, `cfg`, `err`, `opts`, `dir`, `root`, `child`, `state`, `timeout`.
+- Examples to avoid unless truly required: `inputPID`, `existingClient`, `connectTimeout`, `workerPath`.
+
+```ts
+// Good
+const foo = 1;
+function journal(dir: string) {}
+
+// Bad
+const fooBar = 1;
+function prepareJournal(dir: string) {}
+```
+
+Reduce total variable count by inlining when a value is only used once.
 
 ```ts
 // Good
@@ -54,12 +75,50 @@ const journalPath = path.join(dir, "journal.json");
 const data = await fs.readFile(journalPath, "utf-8");
 ```
 
-#### Naming
+#### Destructuring
 
-Prefer single-word names for variables and functions. Multi-word names only when a single word would be ambiguous.
+Avoid unnecessary destructuring. Use dot notation to preserve context.
 
-- Good: `pid`, `cfg`, `err`, `opts`, `dir`, `root`, `child`, `state`, `timeout`
-- Avoid unless required: `inputPID`, `existingClient`, `connectTimeout`, `workerPath`
+```ts
+// Good
+obj.a;
+obj.b;
+
+// Bad
+const { a, b } = obj;
+```
+
+#### Variables
+
+Always use `const` over `let`/`var`. Use ternaries or early returns instead of reassignment.
+
+```ts
+// Good
+const foo = condition ? 1 : 2;
+
+// Bad
+let foo;
+if (condition) foo = 1;
+else foo = 2;
+```
+
+#### Control Flow
+
+Avoid `else` statements. Prefer early returns.
+
+```ts
+// Good
+function foo() {
+  if (condition) return 1;
+  return 2;
+}
+
+// Bad
+function foo() {
+  if (condition) return 1;
+  else return 2;
+}
+```
 
 #### Testing
 
