@@ -1,9 +1,11 @@
 ---
-title: ai
+title: Overview
 description: Personal collection of agent skills and the workflow that uses them.
 ---
 
-## Install
+## Skills
+
+### Install
 
 Install all skills with the following command:
 
@@ -11,13 +13,15 @@ Install all skills with the following command:
 npx skills add janniks/ai
 ```
 
+---
+
 Or install single skills:
 
+**create-spec:** Creates a spec through user interview, codebase exploration, and module design, then saves to `./specs/<feature>.md`.
 
 ```bash
 npx skills add janniks/ai/create-spec
 ```
-
 
 **create-plan:** Turns a spec into a multi-phase implementation plan using tracer-bullet vertical slices, saved to `./plans/<feature>.md`.
 
@@ -25,17 +29,19 @@ npx skills add janniks/ai/create-spec
 npx skills add janniks/ai/create-plan
 ```
 
+## Prompts
 
+- [`/agents`](/agents) -
+- [`/server`](/server) -
 
 ## References
 
 - [Agent Skills](https://agentskills.io/)
 
-
 {/* ## What's next? */}
 
-<Cards>
+{/* <Cards>
   <Card title="Workflow" href="/docs/workflow" />
-   {/* <Card title="create-spec" href="/docs/skills/create-spec" />
-   <Card title="create-plan" href="/docs/skills/create-plan" /> */}
-</Cards>
+   <Card title="create-spec" href="/docs/skills/create-spec" />
+   <Card title="create-plan" href="/docs/skills/create-plan" />
+</Cards> */}
