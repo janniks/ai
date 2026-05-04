@@ -10,10 +10,6 @@ You are supposed to do the following
 
 ---
 
-`AGENTS.md`
-
-```md
-{{ include:AGENTS.md }}
-```
+{{ AGENTS.md }}
 
 Note: Our the guide is mainly generic and related to our workflow and development process/style. We end with a `Project Specific Notes` for non-template notes for individual projects.

@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const include = /\{\{ include:([\w./-]+) \}\}/g;
+const include = /\{\{\s*([\w./-]+)\s*\}\}/g;
 
 export const runtime = 'nodejs';
 
@@ -27,10 +27,7 @@ export async function GET(
 
   const body = await [...template.matchAll(include)].reduce(
     async (result, match) =>
-      (await result).replace(
-        match[0],
-        (await fs.readFile(path.join(pub, match[1]), 'utf8')).trim(),
-      ),
+      (await result).replace(match[0], await attachment(pub, match[1])),
     Promise.resolve(template),
   );
 
@@ -39,4 +36,15 @@ export async function GET(
       'Content-Type': 'text/markdown; charset=utf-8',
     },
   });
+}
+
+async function attachment(dir: string, file: string) {
+  const text = (await fs.readFile(path.join(dir, file), 'utf8')).trim();
+  const longest = Math.max(
+    0,
+    ...[...text.matchAll(/`+/g)].map((match) => match[0].length),
+  );
+  const fence = '`'.repeat(Math.max(3, longest + 1));
+
+  return `\`${file}\`\n\n${fence}md\n${text}\n${fence}`;
 }

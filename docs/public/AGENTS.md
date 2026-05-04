@@ -22,7 +22,6 @@
 - `specs/` — feature intent (problem, stories, decisions). 1:1 by name with `plans/`. In-progress drafts suffixed `-DRAFT.md`.
 - `plans/` — phased implementation. Active plan suffixed `-RUNNING.md` (contains an inline phase-log table).
 - `notes/` — flat, unstructured scratchpad. One thought per file. Revisit only on request.
-- `docs/` — stable reference (style guide, architecture).
 
 ### Workflow
 
