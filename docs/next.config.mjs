@@ -5,6 +5,9 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  outputFileTracingIncludes: {
+    '/[raw]': ['./app/[raw]/content/*.md', './public/*.md'],
+  },
 };
 
 export default withMDX(config);
