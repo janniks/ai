@@ -6,7 +6,7 @@ const withMDX = createMDX();
 const config = {
   reactStrictMode: true,
   outputFileTracingIncludes: {
-    '/[raw]': ['./app/[raw]/content/*.md', './public/*.md'],
+    '/[raw]': ['./app/**/content/*.md', './public/*.md'],
   },
 };
 
