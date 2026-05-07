@@ -1,35 +1,53 @@
 ---
 title: Workflow
-description: A simple agent workflow for specs, plans, and implementation.
+description: Generic agent management — file conventions, dirs, and the spec > plan > implement workflow.
 ---
 
-## Philosophy
+**tldr:**
 
-Keep the work simple. Spend time clarifying the problem before adding code, prefer deleting over adding, and avoid abstractions that are not clearly needed.
+- first make a `spec` / PRD
+- then convert that into a `plan` / agent implementation run.
+- kickoff the implementation work
 
-## Files
+## Theory
 
-- `specs/` contains feature intent: problem, stories, and decisions.
-- `plans/` contains phased implementation steps.
-- `notes/` contains loose scratchpad notes.
+The thesis of this workflow is to spend tokens during the interview/discovery phase of creating a specification.
+Then again spend tokens during the exploration of turning that specification into a implementation plan.
 
-In-progress files use suffixes:
+> This "spending tokens" is just our way of making the models think more about the work and how to achieve it.
 
-- `specs/<feature>-DRAFT.md` while the spec is still being shaped.
-- `plans/<feature>-RUNNING.md` while implementation is active.
+Both steps should ideally think about the problem/feature and ask the user clarifying questions.
+But oftentimes it's enough to make the model think about these subparts and use the recommended approach from a list of its questions.
+In both cases, the output should be reviewed heavily and followed up with a refactoring step.
 
-## Flow
+### Directories
 
-Start with `/grill-me` when the idea needs pressure testing.
+- `notes/` — flat, unstructured scratchpad. One thought per file. Revisit only on request.
+- `specs/` — feature intent (problem, stories, decisions). 1:1 by name with `plans/`. In-progress drafts suffixed `-DRAFT.md`.
+- `plans/` — phased implementation. Active plan suffixed `-RUNNING.md` (contains an inline phase-log table).
 
-Then use `/create-spec` to write the feature intent.
+### 0. Notes (optional)
 
-Then use `/create-plan` to turn the spec into small implementation phases.
+Loose unstructured notes are often useful to commit thinking, reports, and other text without aiming for a full spec.
+Before starting with a spec, it's often useful to make some notes about the feature and the context.
 
-Implement phase by phase. After each meaningful phase, validate the work, commit it, and update the plan phase log.
+### 1. Spec
 
-## Style
+The spec is the feature intent (problem, stories, decisions).
+It's a 1:1 by name with the plan.
+It's in-progress drafts suffixed `-DRAFT.md`.
+Specs can be committed.
 
-Write short, readable markdown. Keep bullets concise. Prefer concrete decisions over broad theory.
+### 2. Plan
 
-For code, keep changes small, functional, and easy to read. Use single word names where they are clear, avoid unnecessary variables, and prefer early returns over nested control flow.
+The plan is the phased implementation.
+It's a 1:1 by name with the spec.
+It's in-progress drafts suffixed `-RUNNING.md` (ticking off steps as they are implemented).
+Plans can be committed, but probably don't need to be.
+
+#### Phase log
+
+Plans are structured in slices/phases.
+After implementing a phase the work should be committed.
+A row should be added to the phase log to track the commit and a summary of the work.
+Each step should test/format/lint/validate the code early.
