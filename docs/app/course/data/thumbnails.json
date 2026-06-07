@@ -1,0 +1,119 @@
+{
+  "essence-of-linear-algebra": {
+    "thumbnail": "/course/thumbs/essence-of-linear-algebra.jpg"
+  },
+  "essence-of-calculus": {
+    "thumbnail": "/course/thumbs/essence-of-calculus.jpg"
+  },
+  "fastai-practical-dl": {
+    "thumbnail": "/course/thumbs/fastai-practical-dl.png"
+  },
+  "3b1b-what-is-nn": {
+    "thumbnail": "/course/thumbs/3b1b-what-is-nn.jpg"
+  },
+  "3b1b-gradient-descent": {
+    "thumbnail": "/course/thumbs/3b1b-gradient-descent.jpg"
+  },
+  "3b1b-nn-series": {
+    "thumbnail": "/course/thumbs/3b1b-nn-series.jpg"
+  },
+  "karpathy-micrograd": {
+    "thumbnail": "/course/thumbs/karpathy-micrograd.jpg"
+  },
+  "karpathy-zero-to-hero": {
+    "thumbnail": "/course/thumbs/karpathy-zero-to-hero.jpg"
+  },
+  "illustrated-word2vec": {
+    "thumbnail": "/course/thumbs/illustrated-word2vec.png"
+  },
+  "karpathy-tokenizer": {
+    "thumbnail": "/course/thumbs/karpathy-tokenizer.jpg"
+  },
+  "hf-llm-course": {
+    "thumbnail": "/course/thumbs/hf-llm-course.png"
+  },
+  "3b1b-what-is-gpt": {
+    "thumbnail": "/course/thumbs/3b1b-what-is-gpt.jpg"
+  },
+  "3b1b-attention": {
+    "thumbnail": "/course/thumbs/3b1b-attention.jpg"
+  },
+  "illustrated-transformer": {
+    "thumbnail": "/course/thumbs/illustrated-transformer.png"
+  },
+  "attention-is-all-you-need": {
+    "thumbnail": "/course/thumbs/attention-is-all-you-need.png"
+  },
+  "transformer-explainer": {
+    "thumbnail": "/course/thumbs/transformer-explainer.png"
+  },
+  "ft-generative-ai": {
+    "thumbnail": "/course/thumbs/ft-generative-ai.jpg"
+  },
+  "annotated-transformer": {
+    "thumbnail": "/course/thumbs/annotated-transformer.png"
+  },
+  "karpathy-build-gpt": {
+    "thumbnail": "/course/thumbs/karpathy-build-gpt.jpg"
+  },
+  "illustrated-gpt2": {
+    "thumbnail": "/course/thumbs/illustrated-gpt2.png"
+  },
+  "raschka-build-llm": {
+    "thumbnail": "/course/thumbs/raschka-build-llm.jpg"
+  },
+  "hands-on-llms": {
+    "thumbnail": "/course/thumbs/hands-on-llms.png"
+  },
+  "stanford-cs25": {
+    "thumbnail": "/course/thumbs/stanford-cs25.png"
+  },
+  "hf-illustrating-rlhf": {
+    "thumbnail": "/course/thumbs/hf-illustrating-rlhf.png"
+  },
+  "instructgpt-paper": {
+    "thumbnail": "/course/thumbs/instructgpt-paper.png"
+  },
+  "dpo-paper": {
+    "thumbnail": "/course/thumbs/dpo-paper.png"
+  },
+  "dlai-finetuning": {
+    "thumbnail": "/course/thumbs/dlai-finetuning.png"
+  },
+  "dlai-rlhf": {
+    "thumbnail": "/course/thumbs/dlai-rlhf.png"
+  },
+  "hf-how-to-generate": {
+    "thumbnail": "/course/thumbs/hf-how-to-generate.png"
+  },
+  "karpathy-intro-llms": {
+    "thumbnail": "/course/thumbs/karpathy-intro-llms.jpg"
+  },
+  "karpathy-how-i-use-llms": {
+    "thumbnail": "/course/thumbs/karpathy-how-i-use-llms.jpg"
+  },
+  "lilian-prompt-engineering": {
+    "thumbnail": "/course/thumbs/lilian-prompt-engineering.png"
+  },
+  "karpathy-deep-dive": {
+    "thumbnail": "/course/thumbs/karpathy-deep-dive.jpg"
+  },
+  "scaling-laws-paper": {
+    "thumbnail": "/course/thumbs/scaling-laws-paper.png"
+  },
+  "gpt3-few-shot-paper": {
+    "thumbnail": "/course/thumbs/gpt3-few-shot-paper.png"
+  },
+  "hf-moe": {
+    "thumbnail": "/course/thumbs/hf-moe.png"
+  },
+  "rag-paper": {
+    "thumbnail": "/course/thumbs/rag-paper.png"
+  },
+  "pinecone-rag": {
+    "thumbnail": "/course/thumbs/pinecone-rag.png"
+  },
+  "anthropic-interpretability": {
+    "thumbnail": "/course/thumbs/anthropic-interpretability.png"
+  }
+}
