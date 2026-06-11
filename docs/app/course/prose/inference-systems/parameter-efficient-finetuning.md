@@ -1,5 +1,5 @@
-LoRA rests on one hypothesis: the weight update needed to adapt a pretrained model has low intrinsic rank. So freeze $W$ and learn the update as a product of two thin matrices,
+LoRA rests on one hypothesis: the change needed to adapt a pretrained model is simple, expressible with far fewer numbers than the model itself. So freeze each big weight matrix $W$, the grid of learned numbers in a layer, and learn only a correction formed by multiplying two thin matrices:
 
-$$W' = W + \frac{\alpha}{r} BA, \qquad B \in \mathbb{R}^{d \times r},\; A \in \mathbb{R}^{r \times d},\; r \ll d,$$
+$$W' = W + BA$${tip:the adapted weights are the frozen original plus the product of two skinny grids B and A, whose narrow shared side r makes the correction cheap to store and train}
 
-training only $A$ and $B$, often well under one percent of the parameters. After training, $BA$ can be merged into $W$, so inference costs nothing extra. QLoRA pushes further by keeping the frozen base in 4-bit precision, which is how large models get fine-tuned on a single GPU.
+where $B$ and $A$ are tall and wide slivers whose product has the full shape of $W$, often well under one percent of the parameters. After training, the product $BA$ can be folded into $W$, so running the model costs nothing extra. QLoRA pushes further by storing the frozen base at 4-bit precision, which is how large models get fine-tuned on a single GPU.

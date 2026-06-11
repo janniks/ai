@@ -1,7 +1,5 @@
-Backpropagation is reverse-mode automatic differentiation: the chain rule applied from the loss backward through the computation graph. Each node receives the derivative of the loss with respect to its output, multiplies by its own local derivative, and passes the result to its inputs. For a chain $\mathcal{L} = f(g(h(\theta)))$,
+Backpropagation is the chain rule applied from the loss backward through the network's chain of operations. The chain rule says: when functions are applied one after another, the sensitivity of the final output to an early input is the product of each step's own local sensitivity. Each operation receives how much the loss changes per unit change of its output, multiplies by its own local derivative, and passes the result back to its inputs.
 
-$$\frac{\partial \mathcal{L}}{\partial \theta} = \frac{\partial \mathcal{L}}{\partial f}\,\frac{\partial f}{\partial g}\,\frac{\partial g}{\partial h}\,\frac{\partial h}{\partial \theta},$$
+The backward direction is what makes it cheap: one backward sweep yields the loss's sensitivity to every parameter, every adjustable number in the network, at roughly the cost of running the network once.
 
-evaluated right to left. The reverse direction is what makes it cheap: one backward pass yields the gradient with respect to every parameter at once, at roughly the cost of the forward pass.
-
-The practical failure modes follow directly from the multiplication. If local derivatives are consistently below one, gradients vanish in early layers; a ReLU whose input is always negative has local derivative zero and never recovers. Knowing the chain rule means being able to predict these pathologies before the loss curve reveals them.
+The practical failure modes follow directly from the multiplication. If the local sensitivities are consistently below one, their product shrinks toward zero and the early layers stop learning; a ReLU unit whose input is always negative has local sensitivity exactly zero and never recovers. Knowing the chain rule means being able to predict these pathologies before the loss curve reveals them.

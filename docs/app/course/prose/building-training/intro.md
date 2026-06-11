@@ -2,4 +2,4 @@ Knowing the architecture and building it are different kinds of knowledge. This 
 
 Pretraining is the same training loop from chapter one applied at scale: cross-entropy on next tokens, Adam, and a very large corpus. The engineering questions become mixed precision, gradient accumulation, and distributing the work across devices, all of which Karpathy's GPT-2 reproduction walks through in the open.
 
-The chapter ends with the scaling laws, the empirical result that loss falls as a power law in parameters, data, and compute. This regularity, not any architectural breakthrough, is why the field's answer to most questions since 2020 has been to train a bigger model on more data.
+The chapter ends with the scaling laws, the empirical result that loss falls smoothly and predictably as models, data, and compute grow. This regularity, not any architectural breakthrough, is why the field's answer to most questions since 2020 has been to train a bigger model on more data.
