@@ -1,6 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { createContext, use, useCallback, useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
+import type { Concept } from '../data/types';
 
 const STORAGE_KEY = 'course:how-llms-work:done';
 
@@ -20,7 +22,6 @@ function readStorage(): Set<string> {
 }
 
 function writeStorage(done: Set<string>) {
-  if (typeof window === 'undefined') return;
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify([...done]));
   } catch {
@@ -34,19 +35,20 @@ export interface ProgressApi {
   isDone: (id: string) => boolean;
   toggle: (id: string) => void;
   resetAll: () => void;
-  /** How many of the given ids are done. */
-  countDone: (ids: readonly string[]) => number;
   doneCount: number;
 }
 
+const ProgressContext = createContext<ProgressApi | null>(null);
+
 /**
- * localStorage-backed completion set.
+ * localStorage-backed completion set, provided via context so any descendant
+ * can read progress without prop drilling.
  * - Renders empty on first paint, hydrates in an effect (mounted flag) to avoid
  *   hydration mismatch.
  * - Writes immediately to localStorage on every change.
  * - Listens to `storage` events so multiple tabs stay in sync.
  */
-export function useProgress(): ProgressApi {
+export function ProgressProvider({ children }: { children: ReactNode }) {
   const [done, setDone] = useState<Set<string>>(() => new Set());
   const [mounted, setMounted] = useState(false);
 
@@ -61,10 +63,7 @@ export function useProgress(): ProgressApi {
     return () => window.removeEventListener('storage', onStorage);
   }, []);
 
-  const isDone = useCallback(
-    (id: string) => done.has(id),
-    [done],
-  );
+  const isDone = useCallback((id: string) => done.has(id), [done]);
 
   const toggle = useCallback((id: string) => {
     setDone((prev) => {
@@ -77,28 +76,26 @@ export function useProgress(): ProgressApi {
   }, []);
 
   const resetAll = useCallback(() => {
-    setDone(() => {
-      const next = new Set<string>();
-      writeStorage(next);
-      return next;
-    });
+    const next = new Set<string>();
+    writeStorage(next);
+    setDone(next);
   }, []);
 
-  const countDone = useCallback(
-    (ids: readonly string[]) => {
-      let n = 0;
-      for (const id of ids) if (done.has(id)) n += 1;
-      return n;
-    },
-    [done],
+  return (
+    <ProgressContext
+      value={{ mounted, isDone, toggle, resetAll, doneCount: done.size }}
+    >
+      {children}
+    </ProgressContext>
   );
-
-  return {
-    mounted,
-    isDone,
-    toggle,
-    resetAll,
-    countDone,
-    doneCount: done.size,
-  };
 }
+
+export function useProgress(): ProgressApi {
+  const api = use(ProgressContext);
+  if (!api) throw new Error('useProgress requires <ProgressProvider>');
+  return api;
+}
+
+/** A concept counts as learned once any one of its resources is checked. */
+export const conceptLearned = (concept: Concept, isDone: (id: string) => boolean) =>
+  concept.items.some((r) => isDone(r.id));

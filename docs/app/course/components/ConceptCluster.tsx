@@ -1,14 +1,12 @@
 'use client';
 
 import type { Concept } from '../data/types';
+import { useProgress } from '../lib/progress';
 import { ResourceCard } from './ResourceCard';
 import { CheckIcon } from '../lib/icons';
 
 interface Props {
   concept: Concept;
-  isDone: (id: string) => boolean;
-  onToggle: (id: string) => void;
-  mounted: boolean;
 }
 
 // Only the deeper/aside tracks get a label; "background" recession is signalled
@@ -20,7 +18,8 @@ const TAG: Record<string, string> = {
 
 // A concept: the thing you learn, with its resources in a horizontal rail. The
 // concept counts as learned once you have checked off any one of its resources.
-export function ConceptCluster({ concept, isDone, onToggle, mounted }: Props) {
+export function ConceptCluster({ concept }: Props) {
+  const { mounted, isDone } = useProgress();
   const done = mounted ? concept.items.filter((r) => isDone(r.id)).length : 0;
   const learned = done >= 1;
   const tag = TAG[concept.track];
@@ -48,12 +47,7 @@ export function ConceptCluster({ concept, isDone, onToggle, mounted }: Props) {
 
       <ol className="concept__rail">
         {concept.items.map((r) => (
-          <ResourceCard
-            key={r.id}
-            resource={r}
-            done={mounted && isDone(r.id)}
-            onToggle={onToggle}
-          />
+          <ResourceCard key={r.id} resource={r} />
         ))}
       </ol>
     </li>

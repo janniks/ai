@@ -2,19 +2,20 @@
 
 import type { Resource } from '../data/types';
 import { TYPE_LABEL } from '../data/types';
+import { useProgress } from '../lib/progress';
 import { Cover } from './Cover';
 import { CheckIcon, TypeIcon } from '../lib/icons';
 
 interface Props {
   resource: Resource;
-  done: boolean;
-  onToggle: (id: string) => void;
 }
 
 // One resource as a compact card in a concept's horizontal rail. The cover and
 // title link to the source (new tab); the corner check toggles done. Checking
 // never opens the link (separate button).
-export function ResourceCard({ resource, done, onToggle }: Props) {
+export function ResourceCard({ resource }: Props) {
+  const { mounted, isDone, toggle } = useProgress();
+  const done = mounted && isDone(resource.id);
   const label = done
     ? `Mark "${resource.title}" as not done`
     : `Mark "${resource.title}" as done`;
@@ -37,7 +38,7 @@ export function ResourceCard({ resource, done, onToggle }: Props) {
         className="card__check"
         aria-pressed={done}
         aria-label={label}
-        onClick={() => onToggle(resource.id)}
+        onClick={() => toggle(resource.id)}
       >
         <span className="card__check-box">
           <CheckIcon className="card__check-mark" width={15} height={15} />

@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { Curriculum } from '../data/types';
-import { useProgress } from '../lib/useProgress';
+import type { Concept, Curriculum } from '../data/types';
+import { conceptLearned, useProgress } from '../lib/progress';
 import { ChapterSection } from './ChapterSection';
 import { ProgressBar, ProgressRing } from './ProgressMeter';
-import { CheckIcon, ListIcon, ResetIcon } from '../lib/icons';
+import { CheckIcon, ListIcon } from '../lib/icons';
+import { ResetControl } from './ResetControl';
 
 interface Props {
   curriculum: Curriculum;
@@ -15,25 +16,21 @@ interface Props {
 // learned once any of its resources is checked. Overall progress counts CORE
 // concepts (the spine); optional concepts are surfaced separately.
 export function CourseApp({ curriculum }: Props) {
-  const progress = useProgress();
-  const { mounted, isDone, toggle, resetAll } = progress;
+  const { mounted, isDone } = useProgress();
 
   const concepts = useMemo(() => {
-    const core = curriculum.chapters.flatMap((ch) =>
-      ch.concepts.filter((c) => c.track === 'core'),
-    );
-    const opt = curriculum.chapters.flatMap((ch) =>
-      ch.concepts.filter((c) => c.track !== 'core'),
-    );
-    return { core, opt };
+    const all = curriculum.chapters.flatMap((ch) => ch.concepts);
+    return {
+      core: all.filter((c) => c.track === 'core'),
+      opt: all.filter((c) => c.track !== 'core'),
+    };
   }, [curriculum]);
 
-  const learned = (c: { items: { id: string }[] }) =>
-    c.items.some((r) => isDone(r.id));
+  const learned = (c: Concept) => mounted && conceptLearned(c, isDone);
 
   const total = concepts.core.length;
-  const done = mounted ? concepts.core.filter(learned).length : 0;
-  const optdone = mounted ? concepts.opt.filter(learned).length : 0;
+  const done = concepts.core.filter(learned).length;
+  const optdone = concepts.opt.filter(learned).length;
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   const finished = mounted && total > 0 && done === total;
 
@@ -69,13 +66,6 @@ export function CourseApp({ curriculum }: Props) {
     return () => io.disconnect();
   }, [curriculum]);
 
-  const [confirm, setConfirm] = useState(false);
-  useEffect(() => {
-    if (!confirm) return;
-    const t = window.setTimeout(() => setConfirm(false), 4000);
-    return () => window.clearTimeout(t);
-  }, [confirm]);
-
   return (
     <>
       <header className={`site-header${scrolled ? ' site-header--scrolled' : ''}`}>
@@ -105,7 +95,7 @@ export function CourseApp({ curriculum }: Props) {
           <ol className="toc__list">
             {curriculum.chapters.map((ch, i) => {
               const core = ch.concepts.filter((c) => c.track === 'core');
-              const cdone = mounted ? core.filter(learned).length : 0;
+              const cdone = core.filter(learned).length;
               const complete = core.length > 0 && cdone === core.length;
               const on = active === ch.id;
               return (
@@ -186,14 +176,7 @@ export function CourseApp({ curriculum }: Props) {
 
           <div className="chapters">
             {curriculum.chapters.map((ch, i) => (
-              <ChapterSection
-                key={ch.id}
-                chapter={ch}
-                index={i + 1}
-                isDone={isDone}
-                onToggle={toggle}
-                mounted={mounted}
-              />
+              <ChapterSection key={ch.id} chapter={ch} index={i + 1} />
             ))}
           </div>
 
@@ -202,40 +185,7 @@ export function CourseApp({ curriculum }: Props) {
               {curriculum.title}. All resources link to their original authors and
               publishers. No accounts, no tracking.
             </p>
-            <div className="colophon__reset">
-              {confirm ? (
-                <span className="reset" role="group" aria-label="Confirm reset">
-                  <span className="reset__prompt">Reset all progress?</span>
-                  <button
-                    type="button"
-                    className="reset__confirm"
-                    onClick={() => {
-                      resetAll();
-                      setConfirm(false);
-                    }}
-                  >
-                    Yes, reset
-                  </button>
-                  <button
-                    type="button"
-                    className="reset__cancel"
-                    onClick={() => setConfirm(false)}
-                  >
-                    Cancel
-                  </button>
-                </span>
-              ) : (
-                <button
-                  type="button"
-                  className="reset__trigger"
-                  onClick={() => setConfirm(true)}
-                  disabled={!mounted || progress.doneCount === 0}
-                >
-                  <ResetIcon width={14} height={14} />
-                  <span>Reset progress</span>
-                </button>
-              )}
-            </div>
+            <ResetControl />
           </footer>
         </main>
       </div>

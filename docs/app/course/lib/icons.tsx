@@ -41,16 +41,7 @@ export function ChevronIcon(props: IconProps) {
   );
 }
 
-export function ArrowUpRightIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <path d="M7 17L17 7" />
-      <path d="M8 7h9v9" />
-    </Svg>
-  );
-}
-
-export function PlayIcon(props: IconProps) {
+function PlayIcon(props: IconProps) {
   return (
     <Svg {...props}>
       <path d="M8 5.5l11 6.5-11 6.5z" />
@@ -58,7 +49,7 @@ export function PlayIcon(props: IconProps) {
   );
 }
 
-export function BookIcon(props: IconProps) {
+function BookIcon(props: IconProps) {
   return (
     <Svg {...props}>
       <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15.5H5.5A1.5 1.5 0 0 0 4 21z" />
@@ -67,7 +58,7 @@ export function BookIcon(props: IconProps) {
   );
 }
 
-export function DocumentIcon(props: IconProps) {
+function DocumentIcon(props: IconProps) {
   return (
     <Svg {...props}>
       <path d="M6 3.5h7l5 5V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20z" />
@@ -77,7 +68,7 @@ export function DocumentIcon(props: IconProps) {
   );
 }
 
-export function PaperIcon(props: IconProps) {
+function PaperIcon(props: IconProps) {
   return (
     <Svg {...props}>
       <path d="M7 3.5h6.5L18 8v12a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z" />
@@ -87,7 +78,7 @@ export function PaperIcon(props: IconProps) {
   );
 }
 
-export function CourseIcon(props: IconProps) {
+function CourseIcon(props: IconProps) {
   // Mortarboard / academic cap.
   return (
     <Svg {...props}>
@@ -98,17 +89,7 @@ export function CourseIcon(props: IconProps) {
   );
 }
 
-export function BeakerIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <path d="M9.5 3.5h5" />
-      <path d="M10 3.5v5.2L5.3 17a1.5 1.5 0 0 0 1.3 2.3h10.8a1.5 1.5 0 0 0 1.3-2.3L14 8.7V3.5" />
-      <path d="M7.6 13.5h8.8" />
-    </Svg>
-  );
-}
-
-export function CursorIcon(props: IconProps) {
+function CursorIcon(props: IconProps) {
   // Interactive: pointer/click motif.
   return (
     <Svg {...props}>
@@ -122,15 +103,6 @@ export function ResetIcon(props: IconProps) {
     <Svg {...props}>
       <path d="M4.5 9A8 8 0 1 1 4 12" />
       <path d="M4.5 4v5h5" />
-    </Svg>
-  );
-}
-
-export function SparkIcon(props: IconProps) {
-  // Four-point sparkle: marks an "inspiration" moment.
-  return (
-    <Svg {...props}>
-      <path d="M12 3c.6 3.9 1.9 5.4 6 6-4.1.6-5.4 2.1-6 6-.6-3.9-1.9-5.4-6-6 4.1-.6 5.4-2.1 6-6z" />
     </Svg>
   );
 }
