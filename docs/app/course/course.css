@@ -167,6 +167,25 @@
   flex: 1;
   min-width: 0;
   overflow: hidden;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+/* Current chapter, revealed once the masthead scrolls away. */
+.site-header__chapter {
+  min-width: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-left: 1px solid var(--rule);
+  padding-left: var(--s-3);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.site-header--scrolled .site-header__chapter {
+  opacity: 1;
 }
 .site-header__title {
   font-family: var(--font-serif);
@@ -534,12 +553,30 @@
 }
 .concept {
   position: relative;
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--radius);
+  background: var(--card);
+  transition: border-color var(--dur) var(--ease);
+}
+.concept:hover {
+  border-color: var(--rule);
 }
 .concept__head {
+  width: 100%;
   display: flex;
   align-items: baseline;
+  text-align: left;
   gap: var(--s-3);
-  padding-bottom: var(--s-3);
+  padding: var(--s-4) var(--s-5);
+}
+.concept__chevron {
+  flex: none;
+  align-self: center;
+  color: var(--ink-faint);
+  transition: transform var(--dur) var(--ease);
+}
+.concept__chevron--open {
+  transform: rotate(180deg);
 }
 .concept__mark {
   flex: none;
@@ -562,10 +599,12 @@
   color: var(--card);
 }
 .concept__heading {
+  display: block;
   min-width: 0;
   flex: 1;
 }
 .concept__title {
+  display: block;
   font-family: var(--font-serif);
   font-size: 1.2rem;
   font-weight: 600;
@@ -584,6 +623,7 @@
   vertical-align: 0.12em;
 }
 .concept__summary {
+  display: block;
   margin-top: 0.2rem;
   font-size: 0.9rem;
   line-height: 1.5;
@@ -609,7 +649,36 @@
   color: var(--ink-soft);
 }
 
-/* the horizontal rail */
+/* the horizontal rail, inside the card */
+.rail-wrap {
+  position: relative;
+}
+.rail-wrap::before,
+.rail-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: var(--s-2);
+  width: 44px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.rail-wrap::before {
+  left: 0;
+  border-bottom-left-radius: var(--radius);
+  background: linear-gradient(to right, var(--card), transparent);
+}
+.rail-wrap::after {
+  right: 0;
+  border-bottom-right-radius: var(--radius);
+  background: linear-gradient(to left, var(--card), transparent);
+}
+.rail-wrap[data-l]::before,
+.rail-wrap[data-r]::after {
+  opacity: 1;
+}
 .concept__rail {
   display: grid;
   grid-auto-flow: column;
@@ -618,10 +687,15 @@
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
-  padding: var(--s-1) var(--s-1) var(--s-4);
-  margin: 0 calc(-1 * var(--s-1));
+  padding: var(--s-2) var(--s-5) var(--s-5);
+  cursor: grab;
   scrollbar-width: thin;
   scrollbar-color: var(--rule) transparent;
+}
+.rail--dragging {
+  cursor: grabbing;
+  user-select: none;
+  scroll-snap-type: none;
 }
 .concept__rail::-webkit-scrollbar {
   height: 8px;
@@ -1020,4 +1094,10 @@
 .concept__progress,
 .masthead__progress-label {
   font-variant-numeric: tabular-nums;
+}
+
+/* Formulas carrying a plain-language reading: dotted underline + hover title. */
+.prose .math-tip {
+  cursor: help;
+  border-bottom: 1px dotted var(--ink-faint);
 }

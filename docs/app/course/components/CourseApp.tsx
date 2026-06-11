@@ -78,6 +78,9 @@ export function CourseApp({ curriculum, prose }: Props) {
         <div className="site-header__inner">
           <div className="site-header__title-block">
             <span className="site-header__title">{curriculum.title}</span>
+            <span className="site-header__chapter" aria-hidden="true">
+              {curriculum.chapters.find((c) => c.id === active)?.title}
+            </span>
           </div>
           <div className="site-header__progress">
             <ProgressRing value={done} total={total} size={28} />
