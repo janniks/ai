@@ -1096,8 +1096,19 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Formulas carrying a plain-language reading: dotted underline + hover title. */
+/* Formulas carrying a plain-language reading: a quiet chip signals hoverable. */
 .prose .math-tip {
   cursor: help;
-  border-bottom: 1px dotted var(--ink-faint);
+  background: var(--paper-sunk);
+  border-radius: 5px;
+  padding: 0.08em 0.3em;
+  transition: background var(--dur) var(--ease);
+}
+.prose .math-tip:hover {
+  background: var(--paper-deep);
+}
+.prose .katex-display.math-tip {
+  padding: var(--s-2) var(--s-3);
+  width: fit-content;
+  margin-inline: auto;
 }
