@@ -20,7 +20,10 @@ export function ProgressBar({ value, total, className }: BarProps) {
       aria-valuenow={value}
       aria-valuetext={`${value} of ${total} core resources complete`}
     >
-      <span className="meter-bar__fill" style={{ width: `${pct}%` }} />
+      <span
+        className="meter-bar__fill"
+        style={{ transform: `scaleX(${pct / 100})` }}
+      />
     </div>
   );
 }

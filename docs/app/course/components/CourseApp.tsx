@@ -71,6 +71,9 @@ export function CourseApp({ curriculum, prose }: Props) {
 
   return (
     <>
+      <a href="#content" className="skip-link">
+        Skip to content
+      </a>
       <header className={`site-header${scrolled ? ' site-header--scrolled' : ''}`}>
         <div className="site-header__inner">
           <div className="site-header__title-block">
