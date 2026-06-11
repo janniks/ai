@@ -2,42 +2,39 @@
 
 import { useId, useState } from 'react';
 import type { Chapter } from '../data/types';
-import { ResourceRow } from './ResourceRow';
+import { ConceptCluster } from './ConceptCluster';
 import { ChevronIcon } from '../lib/icons';
 
-interface ChapterSectionProps {
+interface Props {
   chapter: Chapter;
-  /** Display number, 1-based. */
-  number: number;
+  /** 1-based fallback when chapter.number is absent. */
+  index: number;
   isDone: (id: string) => boolean;
   onToggle: (id: string) => void;
   mounted: boolean;
 }
 
-// A chapter: number + serif title + one-line summary + per-chapter progress, then
-// a collapsible disclosure body of resource rows. Progress counts CORE completion;
-// optional progress is surfaced secondarily. Default expanded.
-export function ChapterSection({
-  chapter,
-  number,
-  isDone,
-  onToggle,
-  mounted,
-}: ChapterSectionProps) {
+// A chapter: number + serif title + summary + per-chapter progress, then a
+// collapsible body of concept clusters. Progress counts CORE concepts learned.
+//
+// INTERSTITIAL PROSE: full-width <Prose> blocks will interleave between concepts
+// (chapter intro, or keyed to a concept id) once the md+math pipeline lands.
+export function ChapterSection({ chapter, index, isDone, onToggle, mounted }: Props) {
   const [open, setOpen] = useState(true);
-  const bodyId = useId();
+  const body = useId();
 
-  const core = chapter.items.filter((r) => r.track === 'core');
-  const optional = chapter.items.filter((r) => r.track !== 'core');
-  const coreDone = mounted ? core.filter((r) => isDone(r.id)).length : 0;
-  const optionalDone = mounted ? optional.filter((r) => isDone(r.id)).length : 0;
-  const chapterComplete = core.length > 0 && coreDone === core.length;
-
-  const num = String(number).padStart(2, '0');
+  const core = chapter.concepts.filter((c) => c.track === 'core');
+  const learned = mounted
+    ? core.filter((c) => c.items.some((r) => isDone(r.id))).length
+    : 0;
+  const complete = core.length > 0 && learned === core.length;
+  const num = chapter.number ?? String(index).padStart(2, '0');
 
   return (
     <section
-      className={`chapter${chapterComplete ? ' chapter--complete' : ''}`}
+      className={`chapter${complete ? ' chapter--complete' : ''}${
+        chapter.optional ? ' chapter--optional' : ''
+      }`}
       id={chapter.id}
       aria-labelledby={`${chapter.id}-title`}
     >
@@ -46,7 +43,7 @@ export function ChapterSection({
           type="button"
           className="chapter__toggle"
           aria-expanded={open}
-          aria-controls={bodyId}
+          aria-controls={body}
           onClick={() => setOpen((v) => !v)}
         >
           <ChevronIcon
@@ -60,47 +57,37 @@ export function ChapterSection({
             </span>
             <span className="chapter__title-wrap">
               <span className="chapter__title" id={`${chapter.id}-title`}>
-                <span className="chapter__num-sr">Chapter {number}. </span>
+                <span className="chapter__num-sr">Chapter {num}. </span>
                 {chapter.title}
+                {chapter.optional && (
+                  <span className="chapter__optional-tag">optional</span>
+                )}
               </span>
               <span className="chapter__summary">{chapter.summary}</span>
             </span>
           </span>
         </button>
 
-        <p className="chapter__progress" aria-live="polite">
-          {core.length > 0 ? (
-            <span className="chapter__progress-core">
-              <strong>{coreDone}</strong>
-              <span className="chapter__progress-slash">/</span>
-              {core.length} core
-            </span>
-          ) : (
-            <span className="chapter__progress-core chapter__progress-core--none">
-              optional chapter
-            </span>
-          )}
-          {optional.length > 0 && (
-            <span className="chapter__progress-opt">
-              +{optionalDone} optional
-            </span>
-          )}
-        </p>
+        {core.length > 0 && (
+          <p className="chapter__progress" aria-live="polite">
+            <strong>{learned}</strong> / {core.length} learned
+          </p>
+        )}
       </header>
 
       <div
-        id={bodyId}
+        id={body}
         className={`chapter__body${open ? ' chapter__body--open' : ''}`}
         hidden={!open}
       >
-        <ol className="chapter__rows">
-          {chapter.items.map((resource, i) => (
-            <ResourceRow
-              key={resource.id}
-              resource={resource}
-              done={mounted && isDone(resource.id)}
+        <ol className="concepts">
+          {chapter.concepts.map((c) => (
+            <ConceptCluster
+              key={c.id}
+              concept={c}
+              isDone={isDone}
               onToggle={onToggle}
-              index={i}
+              mounted={mounted}
             />
           ))}
         </ol>

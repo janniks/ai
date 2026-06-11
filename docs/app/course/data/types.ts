@@ -36,6 +36,22 @@ export interface Resource {
   thumbColor?: string;
 }
 
+// A concept is a thing you actually learn (e.g. "Linear algebra",
+// "Backpropagation", "Self-attention"). Several resources flow into it as
+// alternative or complementary ways to learn the same idea. The concept is the
+// unit shown on the page; resources cluster inside it.
+export interface Concept {
+  id: string;
+  /** What you'll learn, e.g. "Linear algebra". */
+  title: string;
+  /** One short line on the idea or why it matters. */
+  summary?: string;
+  /** Core = on the spine; background/advanced = optional; inspiration = wonder. */
+  track: Track;
+  /** Resources that teach this concept, ordered best/recommended first. */
+  items: Resource[];
+}
+
 export interface Chapter {
   id: string;
   /** Display number, e.g. "00" for the optional prelude, "01"+ for the core path. Falls back to index. */
@@ -44,7 +60,7 @@ export interface Chapter {
   summary: string;
   /** A whole chapter that is optional/skippable (e.g. the "00" foundations prelude). */
   optional?: boolean;
-  items: Resource[];
+  concepts: Concept[];
 }
 
 export interface Curriculum {

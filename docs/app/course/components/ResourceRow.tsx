@@ -4,7 +4,7 @@ import type { Resource } from '../data/types';
 import { TYPE_LABEL } from '../data/types';
 import { Cover } from './Cover';
 import { TrackBadge } from './TrackBadge';
-import { ArrowUpRightIcon, CheckIcon, TypeIcon } from '../lib/icons';
+import { ArrowUpRightIcon, CheckIcon, SparkIcon, TypeIcon } from '../lib/icons';
 
 interface ResourceRowProps {
   resource: Resource;
@@ -14,36 +14,58 @@ interface ResourceRowProps {
   index: number;
 }
 
-// One resource. Full state: cover, linked title, meta (type · author · duration),
-// the "why" line, a track badge, and a separate keyboard-operable check control.
-// Done state: collapses to a slim single line; the check stays, the cover shrinks
-// and desaturates, the why hides. Checking never opens the link.
+// One resource, positioned on the chapter spine via .row__node. State:
+//  - core:        full card sitting ON the spine (elevated surface).
+//  - optional:    background/advanced — branches off the spine, recessed.
+//  - inspiration: a warm "moment" — quote-like, spark-marked, still checkable.
+// Done state collapses to a slim line; the cover/title link to the resource and
+// checking never opens the link.
 export function ResourceRow({ resource, done, onToggle, index }: ResourceRowProps) {
-  const optional = resource.track !== 'core';
-  const checkLabel = done
+  const optional = resource.track === 'background' || resource.track === 'advanced';
+  const spark = resource.track === 'inspiration';
+  const label = done
     ? `Mark "${resource.title}" as not done`
     : `Mark "${resource.title}" as done`;
 
   return (
     <li
-      className={`row${done ? ' row--done' : ''}${optional ? ' row--optional' : ''}`}
+      className={`row${done ? ' row--done' : ''}${optional ? ' row--optional' : ''}${
+        spark ? ' row--spark' : ''
+      }`}
       style={{ ['--row-i' as string]: index }}
     >
+      <span className="row__node" aria-hidden="true" />
+
       <button
         type="button"
         className="row__check"
         aria-pressed={done}
-        aria-label={checkLabel}
+        aria-label={label}
         onClick={() => onToggle(resource.id)}
       >
-        <span className="row__check-box">
-          <CheckIcon className="row__check-mark" width={18} height={18} />
-        </span>
+        {spark && !done ? (
+          <SparkIcon className="row__spark-mark" width={20} height={20} />
+        ) : (
+          <span className="row__check-box">
+            <CheckIcon className="row__check-mark" width={18} height={18} />
+          </span>
+        )}
       </button>
 
-      <div className="row__cover">
-        <Cover resource={resource} done={done} />
-      </div>
+      {!spark && (
+        <div className="row__cover">
+          <a
+            href={resource.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="row__cover-link"
+            aria-label={`Open "${resource.title}" in a new tab`}
+            tabIndex={-1}
+          >
+            <Cover resource={resource} done={done} />
+          </a>
+        </div>
+      )}
 
       <div className="row__main">
         <div className="row__head">

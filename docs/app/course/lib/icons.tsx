@@ -126,6 +126,15 @@ export function ResetIcon(props: IconProps) {
   );
 }
 
+export function SparkIcon(props: IconProps) {
+  // Four-point sparkle: marks an "inspiration" moment.
+  return (
+    <Svg {...props}>
+      <path d="M12 3c.6 3.9 1.9 5.4 6 6-4.1.6-5.4 2.1-6 6-.6-3.9-1.9-5.4-6-6 4.1-.6 5.4-2.1 6-6z" />
+    </Svg>
+  );
+}
+
 export function ListIcon(props: IconProps) {
   return (
     <Svg {...props}>

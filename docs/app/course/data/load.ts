@@ -19,15 +19,18 @@ export function getCurriculum(): Curriculum {
     ...curriculum,
     chapters: curriculum.chapters.map((chapter) => ({
       ...chapter,
-      items: chapter.items.map((item) => {
-        const extra = thumbs[item.id];
-        if (!extra) return item;
-        return {
-          ...item,
-          thumbnail: extra.thumbnail ?? item.thumbnail,
-          thumbColor: extra.thumbColor ?? item.thumbColor,
-        };
-      }),
+      concepts: chapter.concepts.map((concept) => ({
+        ...concept,
+        items: concept.items.map((item) => {
+          const extra = thumbs[item.id];
+          if (!extra) return item;
+          return {
+            ...item,
+            thumbnail: extra.thumbnail ?? item.thumbnail,
+            thumbColor: extra.thumbColor ?? item.thumbColor,
+          };
+        }),
+      })),
     })),
   };
 }

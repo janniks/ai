@@ -28,3 +28,6 @@ yarn-error.log*
 .env
 .env.local
 .env*.local
+
+# Cached full text / transcripts of course resources (large, re-downloadable)
+sources/_fulltext/

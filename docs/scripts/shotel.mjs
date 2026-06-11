@@ -1,0 +1,10 @@
+import { chromium } from 'playwright';
+const sel = process.env.SEL ?? '.masthead';
+const w = Number(process.env.W ?? 1280);
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: w, height: 1000 } });
+await p.goto('http://localhost:3000/course', { waitUntil: 'networkidle', timeout: 60000 });
+await p.waitForTimeout(500);
+await p.locator(sel).first().screenshot({ path: '/tmp/shots/el.png' });
+await b.close();
+console.log('ok');
