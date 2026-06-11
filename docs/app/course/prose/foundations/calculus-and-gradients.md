@@ -1,0 +1,3 @@
+The gradient $\nabla_\theta \mathcal{L}$ collects the partial derivatives of a scalar loss with respect to every parameter, and points in the direction of steepest increase. Training is the repeated step $\theta \leftarrow \theta - \eta \, \nabla_\theta \mathcal{L}$, with learning rate $\eta$.
+
+The chain rule is the entire mechanism. For a composition $\mathcal{L} = f(g(h(\theta)))$, the derivative is a product of local Jacobians, $\frac{\partial \mathcal{L}}{\partial \theta} = \frac{\partial f}{\partial g}\frac{\partial g}{\partial h}\frac{\partial h}{\partial \theta}$. Backpropagation, the subject of chapter one, is nothing more than evaluating this product efficiently, from the loss backward.

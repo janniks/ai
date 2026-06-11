@@ -1,0 +1,3 @@
+All decoding strategies are policies over the same distribution. Temperature rescales logits before the softmax, $p_i \propto e^{z_i / T}$: $T \to 0$ recovers greedy argmax, $T > 1$ flattens. Top-k samples from the $k$ most probable tokens only; top-p (nucleus) sampling keeps the smallest set whose cumulative probability exceeds $p$, adapting the cutoff to the distribution's shape.
+
+Greedy decoding is repetitive because likelihood and quality diverge: the most probable continuation of text is often degenerate. Sampling from a truncated distribution keeps the long tail of nonsense out while preserving genuine variation. These are inference-time choices; the same weights, at different settings, give a different writer.

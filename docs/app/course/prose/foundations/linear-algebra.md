@@ -1,0 +1,3 @@
+The single operation to internalize is the matrix-vector product. A matrix $W \in \mathbb{R}^{m \times n}$ maps $\mathbb{R}^n$ to $\mathbb{R}^m$ linearly: rotations, scalings, shears, projections, and nothing else. Every layer of every model in this curriculum is such a map composed with a simple nonlinearity.
+
+Two consequences matter constantly. The dot product $u^\top v = \|u\|\|v\|\cos\theta$ measures alignment, which is how attention scores and embedding similarity are computed. And composition of linear maps is matrix multiplication, which is why deep networks are stacks of matmuls and why GPUs, built to multiply matrices, run the whole field.

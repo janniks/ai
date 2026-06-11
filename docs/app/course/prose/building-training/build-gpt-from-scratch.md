@@ -1,0 +1,3 @@
+The decoder-only model you just built is the whole recipe: token embeddings plus positional information, $N$ transformer blocks with causally masked attention, a final layernorm, and a projection to logits. Training computes the cross-entropy loss at every position of every sequence in parallel; the causal mask is what lets one pass through a $T$-token sequence supply $T$ prediction problems at once.
+
+Generation inverts this. Feed a prefix, take the distribution at the last position, sample a token, append, repeat. The model is a pure function from context to next-token distribution; the loop around it is where text comes from.

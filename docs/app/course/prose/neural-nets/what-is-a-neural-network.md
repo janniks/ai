@@ -1,0 +1,3 @@
+A single neuron computes $\sigma(w^\top x + b)$: a weighted sum, shifted, then passed through a nonlinearity such as $\mathrm{ReLU}(z) = \max(0, z)$. A layer stacks many neurons into one matrix equation, $h = \sigma(Wx + b)$, and a network composes layers.
+
+The nonlinearity is not decoration. A composition of linear maps is still linear, so without $\sigma$ the deepest network collapses to a single matrix. With it, networks are universal approximators: given enough hidden units, they can represent any continuous function on a compact set to arbitrary accuracy. Universality says such weights exist; it says nothing about finding them. That is the next concept's problem.

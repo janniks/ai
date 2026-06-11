@@ -1,0 +1,3 @@
+RAG splits knowledge in two: parameters hold what the model absorbed in training, and a retrieval index holds what it should consult at runtime. Documents are chunked and embedded; a query is embedded the same way; the nearest chunks by cosine similarity are prepended to the prompt; the model generates conditioned on them.
+
+The geometry is the same embedding idea from chapter two, now applied at the passage level with encoders trained for retrieval. What RAG buys is updatability, attribution, and a check on hallucination, since claims can be grounded in retrieved text. What it does not buy is correctness: retrieval quality bounds the system, and most RAG failures are search failures wearing a generation costume.

@@ -1,0 +1,3 @@
+Learning is framed as probability. A model assigns a distribution $p_\theta(y \mid x)$, and training maximizes the likelihood of observed data, equivalently minimizes the negative log-likelihood $-\sum_i \log p_\theta(y_i \mid x_i)$. Nearly every loss in this curriculum is this quantity under another name.
+
+Keep three ideas close: conditional probability and Bayes' rule, expectation $\mathbb{E}[X]$ as the lever behind every average and every objective, and the idea that a distribution can be compared to another via cross-entropy $H(p, q) = -\sum_x p(x)\log q(x)$. That last one is the loss function of language modeling.

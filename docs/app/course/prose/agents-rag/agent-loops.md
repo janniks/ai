@@ -1,0 +1,3 @@
+Strip the frameworks away and an agent is a while loop: the model receives a goal plus the history of its actions and their results, emits either a tool call or a final answer, and the loop executes and appends. Planning, memory, and tool use are names for what fills the context at each iteration.
+
+The distinction worth keeping from Anthropic's piece: a workflow fixes the control flow in code and uses the model inside it; an agent lets the model direct its own steps. Workflows are predictable and debuggable; agents buy flexibility at the price of compounding errors, since a step that succeeds with probability $p$ succeeds $n$ times in a row with probability $p^n$. Start with the simplest structure the task allows.

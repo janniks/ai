@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
 import type { Concept, Curriculum } from '../data/types';
 import { conceptLearned, useProgress } from '../lib/progress';
 import { ChapterSection } from './ChapterSection';
@@ -10,12 +11,14 @@ import { ResetControl } from './ResetControl';
 
 interface Props {
   curriculum: Curriculum;
+  /** Server-rendered interstitial prose: chapterId → (conceptId | 'intro') → node. */
+  prose: Record<string, Record<string, ReactNode>>;
 }
 
 // Top-level client app. Progress is tracked per resource; a concept counts as
 // learned once any of its resources is checked. Overall progress counts CORE
 // concepts (the spine); optional concepts are surfaced separately.
-export function CourseApp({ curriculum }: Props) {
+export function CourseApp({ curriculum, prose }: Props) {
   const { mounted, isDone } = useProgress();
 
   const concepts = useMemo(() => {
@@ -176,7 +179,12 @@ export function CourseApp({ curriculum }: Props) {
 
           <div className="chapters">
             {curriculum.chapters.map((ch, i) => (
-              <ChapterSection key={ch.id} chapter={ch} index={i + 1} />
+              <ChapterSection
+                key={ch.id}
+                chapter={ch}
+                index={i + 1}
+                prose={prose[ch.id]}
+              />
             ))}
           </div>
 

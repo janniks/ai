@@ -1,15 +1,15 @@
 {
-  "software-2-0": {
-    "thumbnail": "/course/thumbs/software-2-0.jpg"
-  },
   "essence-of-linear-algebra": {
     "thumbnail": "/course/thumbs/essence-of-linear-algebra.jpg"
   },
-  "essence-of-calculus": {
-    "thumbnail": "/course/thumbs/essence-of-calculus.jpg"
-  },
   "eigenvectors-visual": {
     "thumbnail": "/course/thumbs/eigenvectors-visual.png"
+  },
+  "mit-18-06": {
+    "thumbnail": "/course/thumbs/mit-18-06.jpg"
+  },
+  "essence-of-calculus": {
+    "thumbnail": "/course/thumbs/essence-of-calculus.jpg"
   },
   "matrix-calculus-dl": {
     "thumbnail": "/course/thumbs/matrix-calculus-dl.png"
@@ -20,29 +20,26 @@
   "statquest": {
     "thumbnail": "/course/thumbs/statquest.jpg"
   },
-  "linear-regression-visual": {
-    "thumbnail": "/course/thumbs/linear-regression-visual.jpg"
-  },
-  "mlu-explain": {
-    "thumbnail": "/course/thumbs/mlu-explain.png"
-  },
   "andrew-ng-ml": {
     "thumbnail": "/course/thumbs/andrew-ng-ml.jpg"
   },
   "fastai-practical-dl": {
     "thumbnail": "/course/thumbs/fastai-practical-dl.png"
   },
-  "islp": {
-    "thumbnail": "/course/thumbs/islp.png"
+  "linear-regression-visual": {
+    "thumbnail": "/course/thumbs/linear-regression-visual.jpg"
+  },
+  "mlu-explain": {
+    "thumbnail": "/course/thumbs/mlu-explain.png"
   },
   "grokking-ml": {
     "thumbnail": "/course/thumbs/grokking-ml.jpg"
   },
+  "islp": {
+    "thumbnail": "/course/thumbs/islp.png"
+  },
   "mml-book": {
     "thumbnail": "/course/thumbs/mml-book.jpg"
-  },
-  "mit-18-06": {
-    "thumbnail": "/course/thumbs/mit-18-06.jpg"
   },
   "cs229": {
     "thumbnail": "/course/thumbs/cs229.png"
@@ -50,26 +47,29 @@
   "svm-rbf-kernel": {
     "thumbnail": "/course/thumbs/svm-rbf-kernel.png"
   },
-  "universal-approximation": {
-    "thumbnail": "/course/thumbs/universal-approximation.jpg"
+  "software-2-0": {
+    "thumbnail": "/course/thumbs/software-2-0.jpg"
   },
   "3b1b-what-is-nn": {
     "thumbnail": "/course/thumbs/3b1b-what-is-nn.jpg"
   },
+  "3b1b-nn-series": {
+    "thumbnail": "/course/thumbs/3b1b-nn-series.jpg"
+  },
+  "universal-approximation": {
+    "thumbnail": "/course/thumbs/universal-approximation.jpg"
+  },
   "3b1b-gradient-descent": {
     "thumbnail": "/course/thumbs/3b1b-gradient-descent.jpg"
+  },
+  "distill-momentum": {
+    "thumbnail": "/course/thumbs/distill-momentum.jpg"
   },
   "karpathy-micrograd": {
     "thumbnail": "/course/thumbs/karpathy-micrograd.jpg"
   },
   "colah-backprop": {
     "thumbnail": "/course/thumbs/colah-backprop.png"
-  },
-  "little-book-dl": {
-    "thumbnail": "/course/thumbs/little-book-dl.png"
-  },
-  "3b1b-nn-series": {
-    "thumbnail": "/course/thumbs/3b1b-nn-series.jpg"
   },
   "welch-nn-demystified": {
     "thumbnail": "/course/thumbs/welch-nn-demystified.jpg"
@@ -80,92 +80,92 @@
   "cnn-explainer": {
     "thumbnail": "/course/thumbs/cnn-explainer.png"
   },
-  "distill-momentum": {
-    "thumbnail": "/course/thumbs/distill-momentum.jpg"
-  },
   "colah-manifolds": {
     "thumbnail": "/course/thumbs/colah-manifolds.png"
-  },
-  "cs231n": {
-    "thumbnail": "/course/thumbs/cs231n.jpg"
   },
   "welch-why-dl-works": {
     "thumbnail": "/course/thumbs/welch-why-dl-works.jpg"
   },
+  "little-book-dl": {
+    "thumbnail": "/course/thumbs/little-book-dl.png"
+  },
+  "cs231n": {
+    "thumbnail": "/course/thumbs/cs231n.jpg"
+  },
   "hinton-nobel-lecture": {
     "thumbnail": "/course/thumbs/hinton-nobel-lecture.jpg"
-  },
-  "rnn-effectiveness": {
-    "thumbnail": "/course/thumbs/rnn-effectiveness.jpg"
-  },
-  "illustrated-word2vec": {
-    "thumbnail": "/course/thumbs/illustrated-word2vec.png"
   },
   "karpathy-tokenizer": {
     "thumbnail": "/course/thumbs/karpathy-tokenizer.jpg"
   },
-  "hf-llm-course": {
-    "thumbnail": "/course/thumbs/hf-llm-course.png"
+  "glitch-tokens": {
+    "thumbnail": "/course/thumbs/glitch-tokens.jpg"
+  },
+  "illustrated-word2vec": {
+    "thumbnail": "/course/thumbs/illustrated-word2vec.png"
   },
   "embedding-projector": {
     "thumbnail": "/course/thumbs/embedding-projector.png"
   },
-  "understanding-ai-leerob": {
-    "thumbnail": "/course/thumbs/understanding-ai-leerob.jpg"
-  },
-  "glitch-tokens": {
-    "thumbnail": "/course/thumbs/glitch-tokens.jpg"
+  "rnn-effectiveness": {
+    "thumbnail": "/course/thumbs/rnn-effectiveness.jpg"
   },
   "language-models-gpt-gpt2": {
     "thumbnail": "/course/thumbs/language-models-gpt-gpt2.jpg"
   },
-  "ft-generative-ai": {
-    "thumbnail": "/course/thumbs/ft-generative-ai.jpg"
+  "hf-llm-course": {
+    "thumbnail": "/course/thumbs/hf-llm-course.png"
+  },
+  "understanding-ai-leerob": {
+    "thumbnail": "/course/thumbs/understanding-ai-leerob.jpg"
   },
   "3b1b-what-is-gpt": {
     "thumbnail": "/course/thumbs/3b1b-what-is-gpt.jpg"
   },
-  "3b1b-attention": {
-    "thumbnail": "/course/thumbs/3b1b-attention.jpg"
-  },
-  "illustrated-transformer": {
-    "thumbnail": "/course/thumbs/illustrated-transformer.png"
-  },
-  "transformer-explainer": {
-    "thumbnail": "/course/thumbs/transformer-explainer.png"
-  },
-  "attention-is-all-you-need": {
-    "thumbnail": "/course/thumbs/attention-is-all-you-need.png"
-  },
-  "serrano-attention-math": {
-    "thumbnail": "/course/thumbs/serrano-attention-math.jpg"
-  },
-  "statquest-transformer": {
-    "thumbnail": "/course/thumbs/statquest-transformer.jpg"
+  "ft-generative-ai": {
+    "thumbnail": "/course/thumbs/ft-generative-ai.jpg"
   },
   "computerphile-transformers": {
     "thumbnail": "/course/thumbs/computerphile-transformers.jpg"
   },
-  "spreadsheets-gpt2": {
-    "thumbnail": "/course/thumbs/spreadsheets-gpt2.png"
+  "3b1b-attention": {
+    "thumbnail": "/course/thumbs/3b1b-attention.jpg"
+  },
+  "serrano-attention-math": {
+    "thumbnail": "/course/thumbs/serrano-attention-math.jpg"
   },
   "lilian-attention": {
     "thumbnail": "/course/thumbs/lilian-attention.png"
   },
+  "illustrated-transformer": {
+    "thumbnail": "/course/thumbs/illustrated-transformer.png"
+  },
+  "attention-is-all-you-need": {
+    "thumbnail": "/course/thumbs/attention-is-all-you-need.png"
+  },
+  "statquest-transformer": {
+    "thumbnail": "/course/thumbs/statquest-transformer.jpg"
+  },
   "illustrated-bert": {
     "thumbnail": "/course/thumbs/illustrated-bert.png"
   },
-  "annotated-transformer": {
-    "thumbnail": "/course/thumbs/annotated-transformer.png"
+  "transformer-explainer": {
+    "thumbnail": "/course/thumbs/transformer-explainer.png"
+  },
+  "spreadsheets-gpt2": {
+    "thumbnail": "/course/thumbs/spreadsheets-gpt2.png"
   },
   "inside-the-matrix": {
     "thumbnail": "/course/thumbs/inside-the-matrix.jpg"
   },
+  "annotated-transformer": {
+    "thumbnail": "/course/thumbs/annotated-transformer.png"
+  },
   "lilian-transformer-family": {
     "thumbnail": "/course/thumbs/lilian-transformer-family.png"
   },
-  "rotary-embeddings-eleuther": {
-    "thumbnail": "/course/thumbs/rotary-embeddings-eleuther.png"
+  "cs224n": {
+    "thumbnail": "/course/thumbs/cs224n.jpg"
   },
   "karpathy-build-gpt": {
     "thumbnail": "/course/thumbs/karpathy-build-gpt.jpg"
@@ -173,29 +173,35 @@
   "nanogpt": {
     "thumbnail": "/course/thumbs/nanogpt.png"
   },
+  "mingpt": {
+    "thumbnail": "/course/thumbs/mingpt.png"
+  },
   "illustrated-gpt2": {
     "thumbnail": "/course/thumbs/illustrated-gpt2.png"
-  },
-  "karpathy-deep-dive": {
-    "thumbnail": "/course/thumbs/karpathy-deep-dive.jpg"
-  },
-  "raschka-build-llm": {
-    "thumbnail": "/course/thumbs/raschka-build-llm.jpg"
   },
   "karpathy-reproduce-gpt2": {
     "thumbnail": "/course/thumbs/karpathy-reproduce-gpt2.jpg"
   },
-  "hands-on-llms": {
-    "thumbnail": "/course/thumbs/hands-on-llms.png"
-  },
-  "mingpt": {
-    "thumbnail": "/course/thumbs/mingpt.png"
-  },
-  "llama-from-scratch": {
-    "thumbnail": "/course/thumbs/llama-from-scratch.png"
+  "karpathy-deep-dive": {
+    "thumbnail": "/course/thumbs/karpathy-deep-dive.jpg"
   },
   "llm-c": {
     "thumbnail": "/course/thumbs/llm-c.png"
+  },
+  "raschka-build-llm": {
+    "thumbnail": "/course/thumbs/raschka-build-llm.jpg"
+  },
+  "hands-on-llms": {
+    "thumbnail": "/course/thumbs/hands-on-llms.png"
+  },
+  "cs336": {
+    "thumbnail": "/course/thumbs/cs336.jpg"
+  },
+  "stanford-cs25": {
+    "thumbnail": "/course/thumbs/stanford-cs25.png"
+  },
+  "llama-from-scratch": {
+    "thumbnail": "/course/thumbs/llama-from-scratch.png"
   },
   "big-arch-comparison": {
     "thumbnail": "/course/thumbs/big-arch-comparison.jpg"
@@ -205,12 +211,6 @@
   },
   "transformer-math-101": {
     "thumbnail": "/course/thumbs/transformer-math-101.png"
-  },
-  "cs336": {
-    "thumbnail": "/course/thumbs/cs336.jpg"
-  },
-  "stanford-cs25": {
-    "thumbnail": "/course/thumbs/stanford-cs25.png"
   },
   "scaling-laws-paper": {
     "thumbnail": "/course/thumbs/scaling-laws-paper.png"
@@ -227,62 +227,62 @@
   "karpathy-intro-llms": {
     "thumbnail": "/course/thumbs/karpathy-intro-llms.jpg"
   },
-  "lora-paper": {
-    "thumbnail": "/course/thumbs/lora-paper.png"
-  },
-  "visual-quantization": {
-    "thumbnail": "/course/thumbs/visual-quantization.jpg"
-  },
   "karpathy-how-i-use-llms": {
     "thumbnail": "/course/thumbs/karpathy-how-i-use-llms.jpg"
   },
-  "flashattention-paper": {
-    "thumbnail": "/course/thumbs/flashattention-paper.png"
+  "lora-paper": {
+    "thumbnail": "/course/thumbs/lora-paper.png"
   },
   "qlora-paper": {
     "thumbnail": "/course/thumbs/qlora-paper.png"
   },
-  "welch-deepseek-mla": {
-    "thumbnail": "/course/thumbs/welch-deepseek-mla.jpg"
+  "visual-quantization": {
+    "thumbnail": "/course/thumbs/visual-quantization.jpg"
   },
   "transformer-inference-arithmetic": {
     "thumbnail": "/course/thumbs/transformer-inference-arithmetic.jpg"
   },
-  "speculative-decoding-paper": {
-    "thumbnail": "/course/thumbs/speculative-decoding-paper.png"
+  "welch-deepseek-mla": {
+    "thumbnail": "/course/thumbs/welch-deepseek-mla.jpg"
   },
   "attention-sinks": {
     "thumbnail": "/course/thumbs/attention-sinks.png"
   },
+  "flashattention-paper": {
+    "thumbnail": "/course/thumbs/flashattention-paper.png"
+  },
   "making-dl-brrr": {
     "thumbnail": "/course/thumbs/making-dl-brrr.webp"
+  },
+  "speculative-decoding-paper": {
+    "thumbnail": "/course/thumbs/speculative-decoding-paper.png"
   },
   "hf-moe": {
     "thumbnail": "/course/thumbs/hf-moe.png"
   },
-  "welch-ai-images": {
-    "thumbnail": "/course/thumbs/welch-ai-images.jpg"
+  "illustrated-stable-diffusion": {
+    "thumbnail": "/course/thumbs/illustrated-stable-diffusion.png"
   },
   "lilian-diffusion": {
     "thumbnail": "/course/thumbs/lilian-diffusion.png"
   },
-  "illustrated-stable-diffusion": {
-    "thumbnail": "/course/thumbs/illustrated-stable-diffusion.png"
-  },
-  "diffusion-overview-chan": {
-    "thumbnail": "/course/thumbs/diffusion-overview-chan.png"
-  },
   "computerphile-diffusion": {
     "thumbnail": "/course/thumbs/computerphile-diffusion.jpg"
+  },
+  "welch-ai-images": {
+    "thumbnail": "/course/thumbs/welch-ai-images.jpg"
   },
   "computerphile-clip": {
     "thumbnail": "/course/thumbs/computerphile-clip.jpg"
   },
-  "calvin-luo-diffusion": {
-    "thumbnail": "/course/thumbs/calvin-luo-diffusion.png"
-  },
   "dieleman-guidance": {
     "thumbnail": "/course/thumbs/dieleman-guidance.jpg"
+  },
+  "diffusion-overview-chan": {
+    "thumbnail": "/course/thumbs/diffusion-overview-chan.png"
+  },
+  "calvin-luo-diffusion": {
+    "thumbnail": "/course/thumbs/calvin-luo-diffusion.png"
   },
   "hf-illustrating-rlhf": {
     "thumbnail": "/course/thumbs/hf-illustrating-rlhf.png"
@@ -290,14 +290,14 @@
   "instructgpt-paper": {
     "thumbnail": "/course/thumbs/instructgpt-paper.png"
   },
+  "dlai-finetuning": {
+    "thumbnail": "/course/thumbs/dlai-finetuning.png"
+  },
   "dpo-paper": {
     "thumbnail": "/course/thumbs/dpo-paper.png"
   },
   "constitutional-ai": {
     "thumbnail": "/course/thumbs/constitutional-ai.png"
-  },
-  "dlai-finetuning": {
-    "thumbnail": "/course/thumbs/dlai-finetuning.png"
   },
   "deepseek-r1": {
     "thumbnail": "/course/thumbs/deepseek-r1.png"
@@ -305,11 +305,11 @@
   "lets-verify": {
     "thumbnail": "/course/thumbs/lets-verify.png"
   },
-  "lilian-reward-hacking": {
-    "thumbnail": "/course/thumbs/lilian-reward-hacking.png"
-  },
   "hf-deep-rl-course": {
     "thumbnail": "/course/thumbs/hf-deep-rl-course.png"
+  },
+  "lilian-reward-hacking": {
+    "thumbnail": "/course/thumbs/lilian-reward-hacking.png"
   },
   "lilian-agents": {
     "thumbnail": "/course/thumbs/lilian-agents.png"
@@ -320,6 +320,9 @@
   "react-paper": {
     "thumbnail": "/course/thumbs/react-paper.png"
   },
+  "toolformer-paper": {
+    "thumbnail": "/course/thumbs/toolformer-paper.png"
+  },
   "rag-paper": {
     "thumbnail": "/course/thumbs/rag-paper.png"
   },
@@ -329,14 +332,8 @@
   "chip-huyen-book": {
     "thumbnail": "/course/thumbs/chip-huyen-book.jpg"
   },
-  "toolformer-paper": {
-    "thumbnail": "/course/thumbs/toolformer-paper.png"
-  },
   "lilian-hallucinations": {
     "thumbnail": "/course/thumbs/lilian-hallucinations.png"
-  },
-  "olah-interpretability-talk": {
-    "thumbnail": "/course/thumbs/olah-interpretability-talk.jpg"
   },
   "anthropic-interpretability": {
     "thumbnail": "/course/thumbs/anthropic-interpretability.png"
@@ -344,19 +341,79 @@
   "tracing-thoughts": {
     "thumbnail": "/course/thumbs/tracing-thoughts.jpg"
   },
-  "distill-zoom-in-circuits": {
-    "thumbnail": "/course/thumbs/distill-zoom-in-circuits.jpg"
+  "olah-interpretability-talk": {
+    "thumbnail": "/course/thumbs/olah-interpretability-talk.jpg"
   },
   "distill-feature-viz": {
     "thumbnail": "/course/thumbs/distill-feature-viz.jpg"
   },
-  "neel-nanda-glossary": {
-    "thumbnail": "/course/thumbs/neel-nanda-glossary.jpg"
-  },
   "lms-explain-neurons": {
     "thumbnail": "/course/thumbs/lms-explain-neurons.png"
   },
+  "neel-nanda-glossary": {
+    "thumbnail": "/course/thumbs/neel-nanda-glossary.jpg"
+  },
   "neel-200-problems": {
     "thumbnail": "/course/thumbs/neel-200-problems.png"
+  },
+  "immersive-linear-algebra": {
+    "thumbnail": "/course/thumbs/immersive-linear-algebra.jpg"
+  },
+  "stat110": {
+    "thumbnail": "/course/thumbs/stat110.jpg"
+  },
+  "r2d3-visual-ml": {
+    "thumbnail": "/course/thumbs/r2d3-visual-ml.jpg"
+  },
+  "programmers-intro-math": {
+    "thumbnail": "/course/thumbs/programmers-intro-math.jpg"
+  },
+  "wigner-unreasonable-math": {
+    "thumbnail": "/course/thumbs/wigner-unreasonable-math.jpg"
+  },
+  "karpathy-zero-to-hero": {
+    "thumbnail": "/course/thumbs/karpathy-zero-to-hero.jpg"
+  },
+  "intro-to-pytorch": {
+    "thumbnail": "/course/thumbs/intro-to-pytorch.jpg"
+  },
+  "goodfellow-dl-book": {
+    "thumbnail": "/course/thumbs/goodfellow-dl-book.jpg"
+  },
+  "tiktokenizer": {
+    "thumbnail": "/course/thumbs/tiktokenizer.jpg"
+  },
+  "llm-viz-3d": {
+    "thumbnail": "/course/thumbs/llm-viz-3d.jpg"
+  },
+  "transformers-from-scratch-bloem": {
+    "thumbnail": "/course/thumbs/transformers-from-scratch-bloem.jpg"
+  },
+  "rotary-embeddings-eleuther": {
+    "thumbnail": "/course/thumbs/rotary-embeddings-eleuther.jpg"
+  },
+  "sutskever-decade": {
+    "thumbnail": "/course/thumbs/sutskever-decade.jpg"
+  },
+  "diffusion-explainer": {
+    "thumbnail": "/course/thumbs/diffusion-explainer.jpg"
+  },
+  "gan-lab": {
+    "thumbnail": "/course/thumbs/gan-lab.jpg"
+  },
+  "flow-matching-mit": {
+    "thumbnail": "/course/thumbs/flow-matching-mit.jpg"
+  },
+  "induction-heads": {
+    "thumbnail": "/course/thumbs/induction-heads.jpg"
+  },
+  "transformer-circuits-framework": {
+    "thumbnail": "/course/thumbs/transformer-circuits-framework.jpg"
+  },
+  "distill-zoom-in-circuits": {
+    "thumbnail": "/course/thumbs/distill-zoom-in-circuits.jpg"
+  },
+  "toy-models-superposition": {
+    "thumbnail": "/course/thumbs/toy-models-superposition.jpg"
   }
 }

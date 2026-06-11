@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
+import type { ReactNode } from 'react';
 import type { Chapter } from '../data/types';
 import { conceptLearned, useProgress } from '../lib/progress';
 import { ConceptCluster } from './ConceptCluster';
@@ -10,14 +11,14 @@ interface Props {
   chapter: Chapter;
   /** 1-based fallback when chapter.number is absent. */
   index: number;
+  /** Server-rendered prose blocks: 'intro' before the concepts, a concept id after it. */
+  prose?: Record<string, ReactNode>;
 }
 
 // A chapter: number + serif title + summary + per-chapter progress, then a
-// collapsible body of concept clusters. Progress counts CORE concepts learned.
-//
-// INTERSTITIAL PROSE: full-width <Prose> blocks will interleave between concepts
-// (chapter intro, or keyed to a concept id) once the md+math pipeline lands.
-export function ChapterSection({ chapter, index }: Props) {
+// collapsible body of concept clusters with interstitial prose interleaved.
+// Progress counts CORE concepts learned.
+export function ChapterSection({ chapter, index, prose }: Props) {
   const { mounted, isDone } = useProgress();
   const [open, setOpen] = useState(true);
   const body = useId();
@@ -79,9 +80,13 @@ export function ChapterSection({ chapter, index }: Props) {
         className={`chapter__body${open ? ' chapter__body--open' : ''}`}
         hidden={!open}
       >
+        {prose?.intro}
         <ol className="concepts">
           {chapter.concepts.map((c) => (
-            <ConceptCluster key={c.id} concept={c} />
+            <li key={c.id}>
+              <ConceptCluster concept={c} />
+              {prose?.[c.id]}
+            </li>
           ))}
         </ol>
       </div>

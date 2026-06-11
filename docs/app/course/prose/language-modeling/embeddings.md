@@ -1,0 +1,3 @@
+An embedding is a lookup: token $i$ maps to row $i$ of a matrix $E \in \mathbb{R}^{|V| \times d}$, a dense vector of a few thousand dimensions. The rows are learned like any other weights, and training pushes tokens that occur in similar contexts toward similar vectors, because that is what makes prediction easy.
+
+The result is that meaning becomes geometry. Similarity is the cosine $\frac{u^\top v}{\|u\|\|v\|}$, and some relations appear as near-linear offsets, the famous $\mathrm{king} - \mathrm{man} + \mathrm{woman} \approx \mathrm{queen}$. Word2vec learned static vectors, one per word; the transformer's contribution, next chapter, is to make each token's vector depend on its context.

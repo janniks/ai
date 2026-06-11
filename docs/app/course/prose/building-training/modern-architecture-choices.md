@@ -1,0 +1,3 @@
+The deltas between GPT-2 and a current open model are few and learnable. RMSNorm replaces layernorm, dropping the mean subtraction: $x / \sqrt{\frac{1}{d}\sum_i x_i^2} \cdot \gamma$. SwiGLU replaces the ReLU feed-forward with a gated form, $(\mathrm{Swish}(W_1 x) \odot W_3 x) W_2$. RoPE replaces learned absolute positions. Grouped-query attention shares each key-value head across several query heads to shrink the KV cache.
+
+Each change is small; together they are roughly the difference between 2019 and now at a given scale. The useful arithmetic to carry forward: parameters $\approx 12 \, n_\text{layers} d^2$, and training cost $\approx 6ND$ FLOPs for $N$ parameters and $D$ tokens. That estimate is the bridge to scaling laws.

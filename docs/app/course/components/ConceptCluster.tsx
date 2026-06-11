@@ -25,7 +25,7 @@ export function ConceptCluster({ concept }: Props) {
   const tag = TAG[concept.track];
 
   return (
-    <li className={`concept concept--${concept.track}${learned ? ' concept--learned' : ''}`}>
+    <div className={`concept concept--${concept.track}${learned ? ' concept--learned' : ''}`}>
       <div className="concept__head">
         <span className="concept__mark" aria-hidden="true">
           <CheckIcon width={12} height={12} />
@@ -50,6 +50,6 @@ export function ConceptCluster({ concept }: Props) {
           <ResourceCard key={r.id} resource={r} />
         ))}
       </ol>
-    </li>
+    </div>
   );
 }

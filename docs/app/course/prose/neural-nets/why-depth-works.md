@@ -1,0 +1,3 @@
+A geometric reading of the same machinery: each layer bends and folds the data manifold, and depth composes folds. Classes that are tangled in input space become linearly separable in the last hidden layer, where a single hyperplane suffices. Depth is efficient because composed transformations can express in few parameters what a single wide layer would need exponentially many units to imitate.
+
+This picture also previews representation learning. The intermediate activations are not bookkeeping; they are learned coordinates in which the task is easy. Embeddings, attention, and the features of the interpretability chapter are all statements about these intermediate spaces.

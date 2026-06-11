@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Inter, JetBrains_Mono, Newsreader } from 'next/font/google';
+import 'katex/dist/katex.min.css';
 import './course.css';
 
 // Self-contained type system for /course. Loaded here, exposed as CSS variables
