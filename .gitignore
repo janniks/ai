@@ -31,3 +31,6 @@ yarn-error.log*
 
 # Cached full text / transcripts of course resources (large, re-downloadable)
 sources/_fulltext/
+
+# MCP research vendor clones
+research/mcp/vendor/
