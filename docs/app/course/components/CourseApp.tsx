@@ -2,12 +2,25 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
+import { useDialKit } from 'dialkit';
 import type { Concept, Curriculum } from '../data/types';
 import { conceptLearned, useProgress } from '../lib/progress';
-import { ChapterSection } from './ChapterSection';
 import { ProgressBar, ProgressRing } from './ProgressMeter';
 import { CheckIcon, ListIcon } from '../lib/icons';
 import { ResetControl } from './ResetControl';
+import { Editorial } from './variants/Editorial';
+import { Focus } from './variants/Focus';
+import { FastTrack } from './variants/FastTrack';
+import { Guided } from './variants/Guided';
+import { Reader } from './variants/Reader';
+
+const VARIANTS = {
+  editorial: Editorial,
+  focus: Focus,
+  'fast track': FastTrack,
+  guided: Guided,
+  reader: Reader,
+} as const;
 
 interface Props {
   curriculum: Curriculum;
@@ -20,6 +33,15 @@ interface Props {
 // concepts (the spine); optional concepts are surfaced separately.
 export function CourseApp({ curriculum, prose }: Props) {
   const { mounted, isDone } = useProgress();
+
+  const dial = useDialKit('Course', {
+    layout: {
+      type: 'select',
+      options: Object.keys(VARIANTS),
+      default: 'fast track',
+    },
+  });
+  const Variant = VARIANTS[dial.layout as keyof typeof VARIANTS] ?? FastTrack;
 
   const concepts = useMemo(() => {
     const all = curriculum.chapters.flatMap((ch) => ch.concepts);
@@ -183,16 +205,7 @@ export function CourseApp({ curriculum, prose }: Props) {
             </div>
           )}
 
-          <div className="chapters">
-            {curriculum.chapters.map((ch, i) => (
-              <ChapterSection
-                key={ch.id}
-                chapter={ch}
-                index={i + 1}
-                prose={prose[ch.id]}
-              />
-            ))}
-          </div>
+          <Variant chapters={curriculum.chapters} prose={prose} />
 
           <footer className="colophon">
             <p className="colophon__note">

@@ -1,6 +1,6 @@
 The training objective is cross-entropy on the next token. The model outputs one raw score per vocabulary word, and the softmax function turns those scores into probabilities that are positive and sum to one, favoring the higher scores. The loss is then
 
-$$\mathcal{L} = -\frac{1}{T}\sum_{t=1}^{T} \log p(x_t \mid x_{<t})$${tip:at each of the T positions, look up the probability the model gave to the token that actually came next, take its logarithm as a penalty that explodes when the model was confident and wrong, and average over the text}
+$$\mathcal{L} = -\frac{1}{T}\sum_{t=1}^{T} \log p(x_t \mid x_{<t})$${tip:Read this as the loss, the curly L, equals minus one over T times a sum over every position in the text. At each of the T positions, look up the probability the model gave to the token that actually came next, given everything before it, and take the logarithm of that probability. The logarithm turns probabilities into penalties that are tiny when the model was confident and right but explode when it was confident and wrong, and the minus sign and the division by T just average those penalties over the whole text. Training the model means nudging its weights to make this average penalty as small as possible.}
 
 Raised back out of the logarithm, this is perplexity: roughly, the number of equally likely choices the model still feels it is guessing among.
 

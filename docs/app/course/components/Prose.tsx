@@ -1,17 +1,21 @@
 import Markdown from 'react-markdown';
+import type { Components } from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import { TipChip } from './TipChip';
 
 interface Node {
   type: string;
+  tagName?: string;
   value?: string;
   children?: Node[];
-  properties?: { className?: string[]; title?: string };
+  properties?: Record<string, unknown> & { className?: string[] };
 }
 
 // Authors mark non-trivial formulas as `$...${tip:plain reading}`. After KaTeX
-// renders, the marker is the text node right after the math element; move it
-// onto the element as a hover title and tag it for the dotted-underline style.
+// renders, the marker is the text node right after the math element; wrap the
+// math in a custom <tip-chip> element carrying the reading, which the renderer
+// maps onto the TipChip tooltip component.
 const rehypeTips = () => (tree: Node) => {
   const walk = (node: Node) => {
     const kids = node.children;
@@ -25,13 +29,23 @@ const rehypeTips = () => (tree: Node) => {
       const prev = kids[i - 1];
       const cls = prev?.properties?.className;
       if (prev?.type !== 'element' || !cls?.some((c) => c.startsWith('katex'))) continue;
-      prev.properties!.title = match[1];
-      prev.properties!.className = [...cls, 'math-tip'];
       text.value = text.value.slice(match[0].length);
+      kids[i - 1] = {
+        type: 'element',
+        tagName: 'tip-chip',
+        properties: { dataTip: match[1] },
+        children: [prev],
+      };
     }
   };
   walk(tree);
 };
+
+const components = {
+  'tip-chip': (props: { 'data-tip'?: string; children?: React.ReactNode }) => (
+    <TipChip tip={props['data-tip'] ?? ''}>{props.children}</TipChip>
+  ),
+} as Components;
 
 // Full-width interstitial prose, set at a book measure (~65ch), interleaved
 // among the concept clusters. Server component: markdown with inline/display
@@ -44,6 +58,7 @@ export function Prose({ text, intro }: { text: string; intro?: boolean }) {
       <Markdown
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeKatex, rehypeTips]}
+        components={components}
       >
         {text}
       </Markdown>

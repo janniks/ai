@@ -37,6 +37,8 @@ export function Rail({ children }: { children: ReactNode }) {
     if (e.pointerType !== 'mouse' || e.button !== 0) return;
     const el = list.current;
     if (!el) return;
+    // Stop native text selection from starting; clicks on links still fire.
+    e.preventDefault();
     drag.current = { down: true, dragged: false, x: e.clientX, left: el.scrollLeft };
   };
 

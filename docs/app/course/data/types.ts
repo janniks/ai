@@ -25,6 +25,12 @@ export interface Resource {
   /** Human-readable length, e.g. "18 min", "~370 pp", "6-week course". */
   duration?: string;
   track: Track;
+  /**
+   * Marks THE pick for learning this concept fast (at most 1-2 per concept).
+   * Fast-path layouts show only essential resources; the rest live in the
+   * concept's deep-dive section.
+   */
+  essential?: boolean;
   /** One sentence: what you get from it. */
   why: string;
   /**

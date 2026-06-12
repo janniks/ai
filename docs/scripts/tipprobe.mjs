@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
+await p.goto('http://localhost:3000/course', { waitUntil: 'networkidle' });
+const chip = p.locator('.math-tip').first();
+await chip.scrollIntoViewIfNeeded();
+await chip.hover();
+await p.waitForTimeout(600);
+const tip = await p.locator('.tipcard').first().textContent().catch(() => null);
+console.log('tooltip:', tip ? tip.slice(0, 90) : 'NOT SHOWN');
+await p.locator('.tipcard').first().screenshot({ path: '/tmp/shots/tip.png' }).catch(() => {});
+await b.close();

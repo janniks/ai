@@ -316,6 +316,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.youtube.com/watch?v=aircAruvnKk',
               duration: '19 min',
               track: 'core',
+              essential: true,
               why: 'The clearest visual explanation of what neurons, weights, and layers actually do.',
             },
             {
@@ -354,6 +355,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.youtube.com/watch?v=IHZwWFHWa-w',
               duration: '21 min',
               track: 'core',
+              essential: true,
               why: 'How a network learns by nudging weights down a loss surface.',
             },
             {
@@ -392,6 +394,7 @@ export const curriculum: Curriculum = {
               url: 'https://colah.github.io/posts/2015-08-Backprop/',
               duration: '20 min',
               track: 'core',
+              essential: true,
               why: 'Derives backprop as reverse-mode differentiation on a graph, the mental model behind micrograd.',
             },
             {
@@ -430,6 +433,7 @@ export const curriculum: Curriculum = {
               url: 'https://karpathy.ai/zero-to-hero.html',
               duration: '~15 hr',
               track: 'core',
+              essential: true,
               why: 'The full code-along arc from a single neuron up to a working GPT, the spine of this curriculum.',
             },
             {
@@ -571,6 +575,7 @@ export const curriculum: Curriculum = {
               url: 'https://tiktokenizer.vercel.app/',
               duration: '5 min',
               track: 'inspiration',
+              essential: true,
               why: 'Paste any text and watch exactly how different models chop it into tokens and IDs.',
             },
             {
@@ -599,6 +604,7 @@ export const curriculum: Curriculum = {
               url: 'https://jalammar.github.io/illustrated-word2vec/',
               duration: '25 min',
               track: 'core',
+              essential: true,
               why: 'Why embeddings place semantically similar words near each other in vector space.',
             },
             {
@@ -627,6 +633,7 @@ export const curriculum: Curriculum = {
               url: 'http://karpathy.github.io/2015/05/21/rnn-effectiveness/',
               duration: '25 min',
               track: 'inspiration',
+              essential: true,
               why: 'A character-level model learns Shakespeare, LaTeX, and C code purely from next-token prediction.',
             },
             {
@@ -645,7 +652,7 @@ export const curriculum: Curriculum = {
           id: 'working-with-models-in-code',
           title: 'Working with models in code',
           summary: 'A developer-friendly path into tokenizers, datasets, and models.',
-          track: 'core',
+          track: 'advanced',
           items: [
             {
               id: 'hf-llm-course',
@@ -692,6 +699,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.youtube.com/watch?v=wjZofJX0v4M',
               duration: '27 min',
               track: 'core',
+              essential: true,
               why: 'The best high-level picture of what a transformer does to predict the next token.',
             },
             {
@@ -730,6 +738,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc',
               duration: '26 min',
               track: 'core',
+              essential: true,
               why: 'Visualizes the query-key-value math so the attention matrices stop being abstract.',
             },
             {
@@ -768,6 +777,7 @@ export const curriculum: Curriculum = {
               url: 'https://jalammar.github.io/illustrated-transformer/',
               duration: '30 min',
               track: 'core',
+              essential: true,
               why: 'The canonical diagram-driven walkthrough of the full transformer.',
             },
             {
@@ -816,6 +826,7 @@ export const curriculum: Curriculum = {
               url: 'https://poloclub.github.io/transformer-explainer/',
               duration: '15 min',
               track: 'core',
+              essential: true,
               why: 'A live GPT-2 in your browser so you can watch attention and predictions update as you type.',
             },
             {
@@ -939,6 +950,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.youtube.com/watch?v=kCc8FmEb1nY',
               duration: '1 hr 56 min',
               track: 'core',
+              essential: true,
               why: 'You build and train a working transformer (the core of nanoGPT) line by line.',
             },
             {
@@ -948,7 +960,7 @@ export const curriculum: Curriculum = {
               author: 'Andrej Karpathy',
               url: 'https://github.com/karpathy/nanoGPT',
               duration: 'repo',
-              track: 'core',
+              track: 'advanced',
               why: 'The minimal, hackable GPT training and reproduction repo the build video leads to.',
             },
             {
@@ -986,7 +998,7 @@ export const curriculum: Curriculum = {
               author: 'Andrej Karpathy',
               url: 'https://www.youtube.com/watch?v=l8pRSuU81PU',
               duration: '4 hr',
-              track: 'core',
+              track: 'advanced',
               why: 'Trains a real GPT-2 from scratch: mixed precision, distributed training, and optimization.',
             },
             {
@@ -997,6 +1009,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.youtube.com/watch?v=7xTGNNLPyMI',
               duration: '3 hr 31 min',
               track: 'core',
+              essential: true,
               why: 'The most complete single explanation of the full training stack and how to reason about models.',
             },
             {
@@ -1015,7 +1028,7 @@ export const curriculum: Curriculum = {
           id: 'book-length-builds',
           title: 'Book-length builds',
           summary: 'Code an entire GPT, pretraining, and finetuning end to end.',
-          track: 'core',
+          track: 'advanced',
           items: [
             {
               id: 'raschka-build-llm',
@@ -1121,6 +1134,7 @@ export const curriculum: Curriculum = {
               url: 'https://arxiv.org/abs/2001.08361',
               duration: '~30 pp',
               track: 'core',
+              essential: true,
               why: 'The power-law relationship between loss and model size, data, and compute.',
             },
             {
@@ -1178,6 +1192,7 @@ export const curriculum: Curriculum = {
               url: 'https://huggingface.co/blog/how-to-generate',
               duration: '25 min',
               track: 'core',
+              essential: true,
               why: 'Greedy, beam, top-k, and top-p sampling with runnable code and clear examples.',
             },
             {
@@ -1206,7 +1221,7 @@ export const curriculum: Curriculum = {
           id: 'parameter-efficient-finetuning',
           title: 'Parameter-efficient finetuning',
           summary: 'Adapting big models cheaply with low-rank adapters.',
-          track: 'core',
+          track: 'advanced',
           items: [
             {
               id: 'lora-paper',
@@ -1215,7 +1230,7 @@ export const curriculum: Curriculum = {
               author: 'Hu et al. (Microsoft)',
               url: 'https://arxiv.org/abs/2106.09685',
               duration: '~20 pp',
-              track: 'core',
+              track: 'advanced',
               why: 'The low-rank adapter method behind most parameter-efficient fine-tuning today.',
             },
             {
@@ -1234,7 +1249,7 @@ export const curriculum: Curriculum = {
           id: 'quantization',
           title: 'Quantization',
           summary: 'Shrinking weights to fewer bits while keeping quality.',
-          track: 'background',
+          track: 'advanced',
           items: [
             {
               id: 'visual-quantization',
@@ -1365,6 +1380,7 @@ export const curriculum: Curriculum = {
               url: 'https://jalammar.github.io/illustrated-stable-diffusion/',
               duration: '30 min',
               track: 'core',
+              essential: true,
               why: 'Traces how the text encoder, UNet denoiser, and latent VAE turn a prompt into an image.',
             },
             {
@@ -1403,6 +1419,7 @@ export const curriculum: Curriculum = {
               url: 'https://poloclub.github.io/diffusion-explainer/',
               duration: '15 min',
               track: 'core',
+              essential: true,
               why: 'Walk through Stable Diffusion’s denoising with adjustable prompts and guidance.',
             },
             {
@@ -1524,6 +1541,7 @@ export const curriculum: Curriculum = {
               url: 'https://huggingface.co/blog/rlhf',
               duration: '25 min',
               track: 'core',
+              essential: true,
               why: 'The clearest diagrammed explanation of the three-stage RLHF pipeline.',
             },
             {
@@ -1562,6 +1580,7 @@ export const curriculum: Curriculum = {
               url: 'https://arxiv.org/abs/2305.18290',
               duration: '~20 pp',
               track: 'core',
+              essential: true,
               why: 'The simpler alternative to RLHF that skips the separate reward model.',
             },
             {
@@ -1665,6 +1684,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.anthropic.com/research/building-effective-agents',
               duration: '20 min',
               track: 'core',
+              essential: true,
               why: 'Distinguishes workflows from agents and gives minimal composable patterns.',
             },
           ],
@@ -1683,6 +1703,7 @@ export const curriculum: Curriculum = {
               url: 'https://arxiv.org/abs/2210.03629',
               duration: '~15 pp',
               track: 'core',
+              essential: true,
               why: 'Interleaves chain-of-thought reasoning with tool actions so a model can plan and gather evidence.',
             },
             {
@@ -1721,6 +1742,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.pinecone.io/learn/retrieval-augmented-generation/',
               duration: '20 min',
               track: 'background',
+              essential: true,
               why: 'A practical breakdown of the ingestion, retrieval, augmentation, and generation pipeline.',
             },
           ],
@@ -1729,7 +1751,7 @@ export const curriculum: Curriculum = {
           id: 'building-and-evaluating-apps',
           title: 'Building & evaluating apps',
           summary: 'Shipping real applications and knowing whether they work.',
-          track: 'core',
+          track: 'advanced',
           items: [
             {
               id: 'chip-huyen-book',
@@ -1776,6 +1798,7 @@ export const curriculum: Curriculum = {
               url: 'https://www.anthropic.com/research/mapping-mind-language-model',
               duration: '20 min',
               track: 'core',
+              essential: true,
               why: 'A readable look at the millions of features found inside Claude.',
             },
             {
@@ -1814,6 +1837,7 @@ export const curriculum: Curriculum = {
               url: 'https://distill.pub/2020/circuits/zoom-in/',
               duration: '40 min',
               track: 'core',
+              essential: true,
               why: 'Argues networks contain understandable features and circuits, grounding the whole program.',
             },
             {
