@@ -4,7 +4,7 @@ Meta-workflow log of this repo's skills and AGENTS.md template. Agents: read thi
 
 ## 2026-07-12
 
-- **Workflow simplification: plans removed.** Spec-driven now: `create-spec` (interview) / `to-spec` (synthesis) for every feature; new `refine-spec` skill replaces `create-plan` for complex work — deepens the spec toward a half-implementation (interface shapes, code examples, size/complexity estimates, vertical slices) instead of a separate plan file. `plans/` directory retired; implementation progress tracked in a transient root-level `IMPLEMENTING-<feature>.md`, deleted on completion.
+- **Workflow simplification: plans removed.** Spec-driven now: `create-spec` for every feature (with a synthesis fast-path absorbing the former `to-spec`); new `refine-spec` skill replaces `create-plan` for complex work — deepens the spec toward a half-implementation (interface shapes, code examples, size/complexity estimates, vertical slices) instead of a separate plan file. `plans/` directory retired; implementation progress tracked in a transient root-level `WIP-<feature>.md`, deleted on completion.
 - Added `find-conventions` skill → builds `CONVENTIONS.md` (naming, shape, in-code patterns, tidbits); AGENTS.md now requires reading `CONVENTIONS.md` in full before implementing.
 - Added `human-review` skill — human-paced file-by-file review via REVIEW_GUIDE.md; corrections become rules, rules fan out via sub-agents; rules land in `CONVENTIONS.md`.
 - Added `prepare-commit` skill (stage-only commits for security-key users; intentionally undocumented in AGENTS.md).

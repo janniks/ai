@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 Implement the work described by the user in the spec (`./specs/`), slice by slice if it has a `## Refinement` section.
 
-Track progress in a transient root-level `IMPLEMENTING-<feature>.md` — current slice, small notes for crash recovery. Delete it when done.
+Track progress in a transient root-level `WIP-<feature>.md` — current slice, small notes for crash recovery. Delete it when done.
 
 Use /tdd where possible, at pre-agreed seams.
 

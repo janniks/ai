@@ -31,4 +31,4 @@ npx skills add mattpocock/skills/writing-great-skills
 
 MIT.
 
-Adapted from [mattpocock/skills](https://github.com/mattpocock/skills): `create-spec`, `refine-spec`, `to-spec`, `code-review`, `implement`, `tdd`, `prototype`, `diagnosing-bugs`, `improve-codebase-architecture`.
+Adapted from [mattpocock/skills](https://github.com/mattpocock/skills): `create-spec`, `refine-spec`, `code-review`, `implement`, `tdd`, `prototype`, `diagnosing-bugs`, `improve-codebase-architecture`.

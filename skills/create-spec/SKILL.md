@@ -6,6 +6,8 @@ description: Create a spec through user interview, codebase exploration, and mod
 
 This skill is invoked when the user wants to create a spec. Skip steps you don't consider necessary.
 
+**Synthesis fast-path:** if the conversation already contains the decisions (the user asks to just "write it up" or "turn this into a spec"), skip the interview (step 3) — sketch the test seams, check them with the user, and go straight to the template.
+
 1. Ask the user for a long, detailed description of the problem they want to solve and any potential ideas for solutions.
 
 2. Explore the repo to verify their assertions and understand the current state of the codebase.

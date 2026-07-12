@@ -48,4 +48,4 @@ Per module: the interface as it will look, with decision-rich snippets.
 
 ## Implementing from a refined spec
 
-Track progress in a transient root-level `IMPLEMENTING-<feature>.md` — which slice is in flight, small notes for crash recovery. Work slice by slice, commit per slice, tick acceptance criteria in the spec. Delete the transient file when done; the spec and commits are the record.
+Track progress in a transient root-level `WIP-<feature>.md` — which slice is in flight, small notes for crash recovery. Work slice by slice, commit per slice, tick acceptance criteria in the spec. Delete the transient file when done; the spec and commits are the record.

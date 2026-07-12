@@ -39,7 +39,7 @@
 
 - `/grill-me` → `/create-spec` → (complex features: `/refine-spec`) → implement slice-by-slice → commit per slice.
 - Small features go straight from spec to implementation. Refine only when the feature is complex enough to earn it.
-- While implementing, track progress in a transient root-level `IMPLEMENTING-<feature>.md` — current slice, small notes for crash recovery. Delete it on completion; the spec and commits are the record.
+- While implementing, track progress in a transient root-level `WIP-<feature>.md` — current slice, small notes for crash recovery. Delete it on completion; the spec and commits are the record.
 - Tick acceptance criteria in the spec after each commit.
 - Deferred items: front-matter `status: deferred` on whatever file fits. No dedicated dir.
 
