@@ -34,3 +34,7 @@ sources/_fulltext/
 
 # MCP research vendor clones
 research/mcp/vendor/
+
+# Inspiration clones (external repos, re-clonable)
+inspiration/
+INSPIRATION.md

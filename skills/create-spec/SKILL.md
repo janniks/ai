@@ -60,6 +60,8 @@ A list of implementation decisions that were made. This can include:
 
 Do NOT include specific file paths or code snippets — they rot quickly.
 
+Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it within the relevant decision and note briefly that it came from a prototype. Trim to the decision-rich parts.
+
 ## Testing Decisions
 
 A list of testing decisions that were made. Include:
