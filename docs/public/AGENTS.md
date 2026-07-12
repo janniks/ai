@@ -19,8 +19,7 @@
 
 ### Directories
 
-- `specs/` — feature intent (problem, stories, decisions). 1:1 by name with `plans/`. In-progress drafts suffixed `-DRAFT.md`.
-- `plans/` — phased implementation. Active plan suffixed `-RUNNING.md` (contains an inline phase-log table).
+- `specs/` — feature intent (problem, stories, decisions). In-progress drafts suffixed `-DRAFT.md`. Complex features get a `## Refinement` section (interfaces, estimates, slices) instead of a separate plan.
 - `notes/` — flat, unstructured scratchpad. One thought per file. Revisit only on request.
 
 ### Conventions
@@ -33,14 +32,15 @@
   - Trigger: 2+ failed attempts before something worked, or a surprise. Test: would this have saved future-you a detour?
   - Append-only dated bullets, detail as indented sub-bullets. Add `- spec: <file>` only when the origin matters. Refactor/clean only with good reason.
 - `UNSURE.md` — decisions made while unsure but had to pick one. Append liberally — too many beats too few. Never edit or delete existing entries; humans resolve them.
-  - Group entries under `## <date> — <spec/plan/note file>`. Each entry is a checkbox with choice, alternative, and why as sub-bullets.
+  - Group entries under `## <date> — <spec/note file>`. Each entry is a checkbox with choice, alternative, and why as sub-bullets.
   - Humans review: write a `verdict:` sub-bullet, check the box. Checked entries are swept on occasional cleanup passes.
 
 ### Workflow
 
-- `/grill-me` → `/create-spec` → `/create-plan` → implement phase-by-phase → commit per phase.
-- In-progress artifacts are suffixed: `specs/<feature>-DRAFT.md` while interviewing, `plans/<feature>-RUNNING.md` while implementing. Rename back (drop the suffix) on finalize / completion.
-- Tick acceptance criteria and append a phase-log row inside the `-RUNNING.md` plan after each commit.
+- `/grill-me` → `/create-spec` → (complex features: `/refine-spec`) → implement slice-by-slice → commit per slice.
+- Small features go straight from spec to implementation. Refine only when the feature is complex enough to earn it.
+- While implementing, track progress in a transient root-level `IMPLEMENTING-<feature>.md` — current slice, small notes for crash recovery. Delete it on completion; the spec and commits are the record.
+- Tick acceptance criteria in the spec after each commit.
 - Deferred items: front-matter `status: deferred` on whatever file fits. No dedicated dir.
 
 ### Style guide (example: TypeScript)

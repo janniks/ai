@@ -10,7 +10,7 @@ Or a single skill:
 
 ```bash
 npx skills add janniks/ai/create-spec
-npx skills add janniks/ai/create-plan
+npx skills add janniks/ai/refine-spec
 ```
 
 Docs: [`web/`](./web) (Fumadocs).
@@ -31,4 +31,4 @@ npx skills add mattpocock/skills/writing-great-skills
 
 MIT.
 
-Adapted from [mattpocock/skills](https://github.com/mattpocock/skills): `create-spec`, `create-plan`, `to-spec`, `code-review`, `implement`, `tdd`, `prototype`, `diagnosing-bugs`, `improve-codebase-architecture`.
+Adapted from [mattpocock/skills](https://github.com/mattpocock/skills): `create-spec`, `refine-spec`, `to-spec`, `code-review`, `implement`, `tdd`, `prototype`, `diagnosing-bugs`, `improve-codebase-architecture`.
