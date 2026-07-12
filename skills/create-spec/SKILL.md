@@ -22,7 +22,9 @@ This skill is invoked when the user wants to create a spec. Skip steps you don't
 
 A deep module (Ousterhout) encapsulates a lot of functionality behind a simple, testable interface that rarely changes.
 
-Check with the user that these modules match their expectations. Ask which modules they want tests written for.
+Sketch the seams at which the feature will be tested. Prefer existing seams to new ones, at the highest point possible — the fewer seams across the codebase, the better; the ideal number is one.
+
+Check with the user that these modules and seams match their expectations. Ask which modules they want tests written for.
 
 5. Once you have a complete understanding of the problem and solution, finalize the spec using the template below and rename `./specs/<feature>-DRAFT.md` → `./specs/<feature>.md`.
 
