@@ -8,6 +8,7 @@ You are supposed to do the following
   - [y] Install required skills
     - `npx skills add janniks/ai`
     - `npx skills add mattpocock/skills/grilling mattpocock/skills/grill-me mattpocock/skills/handoff mattpocock/skills/research mattpocock/skills/writing-great-skills`
+- Optional: the `/status` page on this site installs a custom Claude Code statusline (same instructions-for-agents format as this page)
 
 ---
 
