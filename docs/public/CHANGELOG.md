@@ -1,6 +1,11 @@
 # Changelog
 
-Meta-workflow log of this repo's skills and AGENTS.md template. Agents: read this to learn how the workflow has evolved and what recently changed — newest first.
+Meta-workflow log of this repo's skills and AGENTS.md template. Agents: read this to learn how the workflow has evolved and what recently changed — newest first. Upgrading an existing setup: apply entries newer than your AGENTS.md fetched-stamp.
+
+## 2026-07-16
+
+- **Upgrade path added.** Installs now stamp AGENTS.md with a fetched timestamp; the `/agents` page gained an Upgrading section, and this changelog is served at `/changelog`.
+- Custom Claude Code statusline served at `/status` (optional install).
 
 ## 2026-07-12
 
