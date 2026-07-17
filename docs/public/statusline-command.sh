@@ -1,6 +1,6 @@
 #!/bin/bash
 # ~/.claude/statusline-command.sh
-# Lean p10k-style statusline: dir · git · ctx% · model · effort · cost · rate limits
+# Lean p10k-style statusline: host · dir · git · ctx% · model · effort · cost · rate limits
 # Weekly rate limit is pace-colored: usage % vs elapsed fraction of the 7d window.
 
 input=$(cat)
@@ -9,8 +9,8 @@ input=$(cat)
 # Fallback width when COLUMNS is absent (Claude Code < 2.1.153).
 BUDGET=50
 # Drop order when the line is too long: first listed is dropped first.
-# Segment keys: dir git ctx model cost diff rate
-DROP_ORDER="cost dir diff rate model ctx"
+# Segment keys: host dir git ctx model cost diff rate
+DROP_ORDER="cost host dir diff rate model ctx"
 # Flex gaps: segments spread space-between within COLUMNS, gap clamped to this.
 GAP_MIN=2
 GAP_MAX=8
@@ -79,6 +79,15 @@ $(echo "$input" | jq -r '[
   (.rate_limits.seven_day.resets_at // "-")
 ] | @tsv')
 EOF
+
+# --- host: orbstack machine vs macos host ---
+seg_host=""
+case "$(uname -s)" in
+  Darwin) seg_host="${GRAY}mac${RESET}" ;;
+  Linux)
+    if [ -d /opt/orbstack-guest ]; then seg_host="${MAGENTA}orb:$(hostname -s)${RESET}"
+    else seg_host="${MAGENTA}$(hostname -s)${RESET}"; fi ;;
+esac
 
 # --- dir (worktree-aware) ---
 if [ "$current_dir" != "-" ]; then
@@ -172,7 +181,7 @@ fi
 # fits at GAP_MIN, then spread the leftover width evenly into the gaps
 # (capped at GAP_MAX so wide terminals don't look sparse).
 
-DISPLAY_ORDER="dir git ctx model cost diff rate"
+DISPLAY_ORDER="host dir git ctx model cost diff rate"
 
 plain_len() {  # visible length: strip ANSI escapes
   printf '%s' "$1" | sed $'s/\033\\[[0-9;]*m//g' | wc -m | tr -d ' '
