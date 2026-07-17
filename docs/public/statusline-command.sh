@@ -10,7 +10,7 @@ input=$(cat)
 BUDGET=50
 # Drop order when the line is too long: first listed is dropped first.
 # Segment keys: host dir git ctx model cost diff rate
-DROP_ORDER="cost host dir diff rate model ctx"
+DROP_ORDER="cost dir diff rate model ctx"
 # Flex gaps: segments spread space-between within COLUMNS, gap clamped to this.
 GAP_MIN=2
 GAP_MAX=8
@@ -80,14 +80,9 @@ $(echo "$input" | jq -r '[
 ] | @tsv')
 EOF
 
-# --- host: orbstack machine vs macos host ---
-seg_host=""
-case "$(uname -s)" in
-  Darwin) seg_host="${GRAY}mac${RESET}" ;;
-  Linux)
-    if [ -d /opt/orbstack-guest ]; then seg_host="${MAGENTA}orb:$(hostname -s)${RESET}"
-    else seg_host="${MAGENTA}$(hostname -s)${RESET}"; fi ;;
-esac
+# --- host: ● green = sandbox (orbstack/linux), gray = macos host ---
+if [ "$(uname -s)" = "Darwin" ]; then seg_host="${GRAY}●${RESET}"
+else seg_host="${GREEN}●${RESET}"; fi
 
 # --- dir (worktree-aware) ---
 if [ "$current_dir" != "-" ]; then
