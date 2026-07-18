@@ -80,9 +80,9 @@ $(echo "$input" | jq -r '[
 ] | @tsv')
 EOF
 
-# --- host: ● green = sandbox (orbstack/linux), gray = macos host ---
-if [ "$(uname -s)" = "Darwin" ]; then seg_host="${GRAY}●${RESET}"
-else seg_host="${GREEN}●${RESET}"; fi
+# --- host: • green = sandbox (orbstack/linux), gray = macos host ---
+if [ "$(uname -s)" = "Darwin" ]; then seg_host="${GRAY}•${RESET}"
+else seg_host="${GREEN}•${RESET}"; fi
 
 # --- dir (worktree-aware) ---
 if [ "$current_dir" != "-" ]; then
