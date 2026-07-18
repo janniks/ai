@@ -108,8 +108,8 @@ if [ "$current_dir" != "-" ]; then
     counts=$(git -C "$current_dir" --no-optional-locks rev-list --left-right --count '@{u}...HEAD' 2>/dev/null)
     if [ -n "$counts" ]; then
       behind=${counts%%	*}; ahead=${counts##*	}
-      [ "$ahead" -gt 0 ] 2>/dev/null && ab="$ab ⇡$ahead"
-      [ "$behind" -gt 0 ] 2>/dev/null && ab="$ab ⇣$behind"
+      [ "$ahead" -gt 0 ] 2>/dev/null && ab="$ab ↑$ahead"
+      [ "$behind" -gt 0 ] 2>/dev/null && ab="$ab ↓$behind"
     fi
     if [ -n "$dirty" ]; then git_color=$YELLOW; else git_color=$PEACH; fi
     seg_git="${git_color}${branch}${dirty}${ab:+${GREEN}${ab}}${RESET}"
