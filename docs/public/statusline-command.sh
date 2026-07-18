@@ -18,6 +18,9 @@ GAP_MAX=8
 #   between — even gaps between all segments (justify: space-between, capped)
 #   split   — first half flex-start, second half flex-end, one big middle gap
 LAYOUT="split"
+# For LAYOUT=split: the big middle gap opens just before this segment, so every
+# segment from here rightward stays clustered (keeps ctx% + model side by side).
+SPLIT_BEFORE="ctx"
 # =============================================================================
 
 # --- Nerd Font v3 icons (octal printf — safe on macOS bash 3.2) ---
@@ -197,9 +200,20 @@ measure() {
 render() {  # $1 = flex gap width. LAYOUT=between: gap everywhere, first $rem
             # gaps get +1 col so the line lands flush on the right edge.
             # LAYOUT=split: GAP_MIN inside halves, $1 as the middle gap.
-  local out="" key val i=0 split g mingap
+  local out="" key val i=0 split g mingap j=0 sbpos=0
   mingap=$(printf "%${GAP_MIN}s" "")
-  split=$(( (nseg + 1) / 2 ))
+  # split = rendered index of the first active segment at/after SPLIT_BEFORE
+  for key in $DISPLAY_ORDER; do [ "$key" = "$SPLIT_BEFORE" ] && sbpos=$j; j=$(( j + 1 )); done
+  split=$nseg; j=0
+  for key in $DISPLAY_ORDER; do
+    eval "val=\$seg_$key"
+    if [ -n "$val" ]; then
+      [ "$j" -ge "$sbpos" ] && { split=$i; break; }
+      i=$(( i + 1 ))
+    fi
+    j=$(( j + 1 ))
+  done
+  i=0
   for key in $DISPLAY_ORDER; do
     eval "val=\$seg_$key"
     [ -z "$val" ] && continue
