@@ -23,7 +23,7 @@ In both cases, the output should be reviewed heavily and followed up with a refa
 ### Directories
 
 - `notes/` — flat, unstructured scratchpad. One thought per file. Revisit only on request.
-- `specs/` — feature intent (problem, stories, decisions). In-progress drafts suffixed `-DRAFT.md`. Complex features get a `## Refinement` section instead of a separate plan.
+- `specs/` — feature intent (problem, stories, decisions). Complex features get a `## Refinement` section.
 
 ### 0. Notes (optional)
 
@@ -32,8 +32,7 @@ Before starting with a spec, it's often useful to make some notes about the feat
 
 ### 1. Spec
 
-The spec is the feature intent (problem, stories, decisions).
-In-progress drafts are suffixed `-DRAFT.md`; finalized to `specs/<feature>.md`.
+The spec is the feature intent (problem, stories, decisions), finalized to `specs/<feature>.md`.
 Specs can be committed.
 
 Small features go straight from here to implementation.
@@ -41,7 +40,7 @@ Small features go straight from here to implementation.
 ### 2. Refinement
 
 Complex features earn a refinement pass (`/refine-spec`) so implementation becomes execution, not discovery.
-It lands in the same spec file under a `## Refinement` section — no separate plan artifact:
+It lands in the same spec file under a `## Refinement` section:
 
 - **Interfaces** — how each module will actually look, with decision-rich snippets.
 - **Estimates** — per module: line-count delta, complexity, abstractions touched. Surfaces risk early.

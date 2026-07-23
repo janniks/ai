@@ -19,7 +19,7 @@
 
 ### Directories
 
-- `specs/` — feature intent (problem, stories, decisions). In-progress drafts suffixed `-DRAFT.md`. Complex features get a `## Refinement` section (interfaces, estimates, slices) instead of a separate plan.
+- `specs/` — feature intent (problem, stories, decisions). Complex features get a `## Refinement` section (interfaces, estimates, slices).
 - `notes/` — flat, unstructured scratchpad. One thought per file. Revisit only on request.
 
 ### Conventions
