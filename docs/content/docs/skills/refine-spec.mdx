@@ -1,0 +1,16 @@
+---
+title: refine-spec
+description: Deepen an existing spec toward a half-implementation — interface shapes, code examples, size estimates, vertical slices.
+---
+
+import { SkillSource } from '@/components/skill-source';
+
+- Takes an existing `./specs/<feature>.md` and thinks it further — a half-implementation on paper.
+- Shapes the interfaces each module will actually expose, with decision-rich code snippets.
+- Estimates per module: line-count delta, complexity, abstractions touched — to surface risk early.
+- Slices the work vertically into tracer-bullet slices, expand–contract for wide refactors.
+- Everything lands in the same spec under a `## Refinement` section — no separate plan artifact.
+
+### Skill Source
+
+<SkillSource name="refine-spec" />
