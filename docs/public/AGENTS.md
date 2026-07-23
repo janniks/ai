@@ -56,7 +56,7 @@
 
 #### Naming
 
-Prefer single word names for variables and functions. Only use multiple words if necessary.
+Prefer short 1-2 word names for variables and functions.
 
 > THIS RULE IS MANDATORY FOR AGENT WRITTEN CODE.
 
