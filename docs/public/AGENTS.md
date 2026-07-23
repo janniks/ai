@@ -64,7 +64,7 @@ Prefer short 1-2 word names for variables and functions.
 - Multi-word names are allowed only when a single word would be unclear or ambiguous.
 - Do not introduce new camelCase compounds when a short single-word alternative is clear.
 - Before finishing edits, review touched lines and shorten newly introduced identifiers where possible.
-- Good short names to prefer: `pid`, `cfg`, `err`, `opts`, `dir`, `root`, `child`, `state`, `timeout`.
+- Good short names to prefer: `pid`, `ctx`, `err`, `opts`, `dir`, `root`, `child`, `state`, `timeout`, `buildTx`, `fetchItem`.
 - Examples to avoid unless truly required: `inputPID`, `existingClient`, `connectTimeout`, `workerPath`.
 
 ```ts
