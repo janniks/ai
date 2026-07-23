@@ -133,6 +133,10 @@ function foo() {
 }
 ```
 
+#### Comments
+
+Code should be self-documenting and NOT need commenting. Comments are reserved for when something is **unexpected**. Never comment for documenting _what_ is happening, only for _why_ something is happening in cases where the user would be surprised when reading the line of code without a comment.
+
 #### Testing
 
 - Avoid mocks as much as possible
