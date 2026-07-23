@@ -31,7 +31,7 @@
 - `PAPERCUTS.md` — read at session start; things that didn't go as planned, logged so the next session skips the detour.
   - Trigger: 2+ failed attempts before something worked, or a surprise. Test: would this have saved future-you a detour?
   - Append-only dated bullets, detail as indented sub-bullets. Add `- spec: <file>` only when the origin matters. Refactor/clean only with good reason.
-- `UNSURE.md` — decisions made while unsure but had to pick one. Append liberally — too many beats too few. Never edit or delete existing entries; humans resolve them.
+- `UNSURE.md` — decisions made while unsure but had to pick one. Append liberally — too many beats too few. Never edit or delete existing entries prematurely; humans resolve them typically.
   - Group entries under `## <date> — <spec/note file>`. Each entry is a checkbox with choice, alternative, and why as sub-bullets.
   - Humans review: write a `verdict:` sub-bullet, check the box. Checked entries are swept on occasional cleanup passes.
 
