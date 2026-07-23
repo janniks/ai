@@ -7,7 +7,6 @@ You are supposed to do the following
   ```json
   { "statusLine": { "type": "command", "command": "~/.claude/statusline-command.sh" } }
   ```
-- Requires a Nerd Font (v3 icons) in the terminal — warn the user if unsure
 
 ---
 

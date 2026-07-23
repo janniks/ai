@@ -23,7 +23,7 @@ LAYOUT="split"
 SPLIT_BEFORE="ctx"
 # =============================================================================
 
-# --- Nerd Font v3 icons (octal printf — safe on macOS bash 3.2) ---
+# --- colors (256-color SGR) ---
 RESET=$'\033[0m'; DIM=$'\033[2m'; BOLD=$'\033[1m'
 BLUE=$'\033[38;5;74m';   GREEN=$'\033[38;5;108m'; PEACH=$'\033[38;5;138m'
 YELLOW=$'\033[38;5;179m'; RED=$'\033[38;5;174m';  ORANGE=$'\033[38;5;173m'
