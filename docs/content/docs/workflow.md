@@ -1,18 +1,18 @@
 ---
 title: Workflow
-description: Generic agent management — file conventions, dirs, and the spec > plan > implement workflow.
+description: Generic agent management — file conventions, dirs, and the spec > refine > implement workflow.
 ---
 
 **tldr:**
 
-- first make a `spec` / PRD
-- then convert that into a `plan` / agent implementation run.
-- kickoff the implementation work
+- first make a `spec`
+- complex features: `refine` the spec toward a half-implementation
+- then implement slice by slice, committing per slice
 
 ## Theory
 
 The thesis of this workflow is to spend tokens during the interview/discovery phase of creating a specification.
-Then again spend tokens during the exploration of turning that specification into a implementation plan.
+Then, for complex features, spend tokens again deepening that specification toward a half-implementation before any code is written.
 
 > This "spending tokens" is just our way of making the models think more about the work and how to achieve it.
 
@@ -23,8 +23,7 @@ In both cases, the output should be reviewed heavily and followed up with a refa
 ### Directories
 
 - `notes/` — flat, unstructured scratchpad. One thought per file. Revisit only on request.
-- `specs/` — feature intent (problem, stories, decisions). 1:1 by name with `plans/`. In-progress drafts suffixed `-DRAFT.md`.
-- `plans/` — phased implementation. Active plan suffixed `-RUNNING.md` (contains an inline phase-log table).
+- `specs/` — feature intent (problem, stories, decisions). In-progress drafts suffixed `-DRAFT.md`. Complex features get a `## Refinement` section instead of a separate plan.
 
 ### 0. Notes (optional)
 
@@ -34,20 +33,23 @@ Before starting with a spec, it's often useful to make some notes about the feat
 ### 1. Spec
 
 The spec is the feature intent (problem, stories, decisions).
-It's a 1:1 by name with the plan.
-It's in-progress drafts suffixed `-DRAFT.md`.
+In-progress drafts are suffixed `-DRAFT.md`; finalized to `specs/<feature>.md`.
 Specs can be committed.
 
-### 2. Plan
+Small features go straight from here to implementation.
 
-The plan is the phased implementation.
-It's a 1:1 by name with the spec.
-It's in-progress drafts suffixed `-RUNNING.md` (ticking off steps as they are implemented).
-Plans can be committed, but probably don't need to be.
+### 2. Refinement
 
-#### Phase log
+Complex features earn a refinement pass (`/refine-spec`) so implementation becomes execution, not discovery.
+It lands in the same spec file under a `## Refinement` section — no separate plan artifact:
 
-Plans are structured in slices/phases.
-After implementing a phase the work should be committed.
-A row should be added to the phase log to track the commit and a summary of the work.
-Each step should test/format/lint/validate the code early.
+- **Interfaces** — how each module will actually look, with decision-rich snippets.
+- **Estimates** — per module: line-count delta, complexity, abstractions touched. Surfaces risk early.
+- **Slices** — the work cut into vertical tracer-bullet slices, each demoable end-to-end.
+
+### 3. Implement
+
+Implement slice by slice (`/implement`).
+Track progress in a transient root-level `WIP-<feature>.md` — current slice plus small notes for crash recovery.
+Commit after each slice, ticking that slice's acceptance criteria in the spec.
+Delete the `WIP` file on completion; the spec and commits are the record.

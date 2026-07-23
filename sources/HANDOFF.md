@@ -65,7 +65,7 @@ Remaining nice-to-haves: none critical. Could deepen with Jurafsky & Martin
 ## Next steps / suggested skills
 
 - `firecrawl-search` / `firecrawl-scrape` — gather the gap resources above
-- `create-spec` → `create-plan` — if turning this into a real
+- `create-spec` → `refine-spec` — if turning this into a real
   course-with-exercises (not just a reading list)
 - Decide: is `janniks-ai` a course-builder repo, or just a curated corpus?
   No README/structure beyond `sources/` exists yet — confirm intent with user.
