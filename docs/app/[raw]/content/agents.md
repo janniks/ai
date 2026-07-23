@@ -10,6 +10,7 @@ You are supposed to do the following
     - `npx skills add janniks/ai`
     - `npx skills add mattpocock/skills/grilling mattpocock/skills/grill-me mattpocock/skills/handoff mattpocock/skills/research mattpocock/skills/writing-great-skills`
 - Optional: the `/status` page on this site installs a custom Claude Code statusline (same instructions-for-agents format as this page)
+- Optional: export `CLAUDE_CODE_AUTO_COMPACT_WINDOW=300000` in your shell rc (`~/.zshrc`) to compact earlier than the default — keeps context fresher on long sessions. Read at launch, so restart Claude Code after setting.
 
 ## Upgrading
 

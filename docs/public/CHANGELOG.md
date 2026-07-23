@@ -2,6 +2,10 @@
 
 Meta-workflow log of this repo's skills and AGENTS.md template. Agents: read this to learn how the workflow has evolved and what recently changed — newest first. Upgrading an existing setup: apply entries newer than your AGENTS.md fetched-stamp.
 
+## 2026-07-23
+
+- Documented optional `CLAUDE_CODE_AUTO_COMPACT_WINDOW=300000` shell-rc export on the `/agents` page — compacts earlier for fresher context on long sessions.
+
 ## 2026-07-16
 
 - **Upgrade path added.** Installs now stamp AGENTS.md with a fetched timestamp; the `/agents` page gained an Upgrading section, and this changelog is served at `/changelog`.
