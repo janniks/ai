@@ -1,0 +1,15 @@
+---
+title: human-review
+description: Human-paced review of many files via a generated REVIEW_GUIDE.md — corrections become rules, rules fan out to the remaining files.
+---
+
+import { SkillSource } from '@/components/skill-source';
+
+- Generates a `REVIEW_GUIDE.md` of clustered files, reviewed one checkbox at a time.
+- Calibrates on the first file; touched files are semi-locked at their confirmed wording.
+- Your corrections (and manual edits, diffed) become explicit rules.
+- Rules fan out across the remaining files via sub-agents; finished rules land in `CONVENTIONS.md`.
+
+### Skill Source
+
+<SkillSource name="human-review" />

@@ -1,0 +1,15 @@
+---
+title: find-conventions
+description: Scan the whole codebase for its conventions and patterns — naming above all — and distill them into CONVENTIONS.md.
+---
+
+import { SkillSource } from '@/components/skill-source';
+
+- Scans the whole codebase for its conventions and patterns — naming above all.
+- Cheaper models read the full code for in-code habits; a stronger model reviews the list against an exported-shape skeleton.
+- Distills the result into `CONVENTIONS.md` with a "Last full scan" timestamp.
+- `CONVENTIONS.md` is then read in full before implementing any feature.
+
+### Skill Source
+
+<SkillSource name="find-conventions" />

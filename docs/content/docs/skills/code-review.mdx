@@ -1,0 +1,15 @@
+---
+title: code-review
+description: Review changes since a fixed point along two axes — Standards and Spec — in parallel sub-agents, reported side by side.
+---
+
+import { SkillSource } from '@/components/skill-source';
+
+- Reviews changes since a fixed point (commit, branch, tag, or merge-base).
+- **Standards axis:** does the code follow `AGENTS.md`, `CONVENTIONS.md`, and a Fowler smell baseline?
+- **Spec axis:** does the code do what the originating spec asked for?
+- Runs both axes in parallel sub-agents and reports them side by side — no cross-axis reranking.
+
+### Skill Source
+
+<SkillSource name="code-review" />

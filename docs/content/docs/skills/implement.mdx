@@ -1,0 +1,15 @@
+---
+title: implement
+description: Implement a piece of work based on a spec — slice by slice, with a transient WIP file, TDD at agreed seams, and a review before each commit.
+---
+
+import { SkillSource } from '@/components/skill-source';
+
+- Works from an existing `./specs/<feature>.md`, executing its slices rather than rediscovering them.
+- Tracks progress in a transient root-level `WIP-<feature>.md`, deleted on completion.
+- Drops into `/tdd` at the seams the spec pre-agreed to test.
+- Runs `/code-review` after a slice, then commits per slice.
+
+### Skill Source
+
+<SkillSource name="implement" />

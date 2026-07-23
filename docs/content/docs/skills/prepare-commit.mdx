@@ -1,0 +1,16 @@
+---
+title: prepare-commit
+description: Stage only the agent's own changes and write a commit message matching the repo's history, so you can commit with git commit --no-edit.
+---
+
+import { SkillSource } from '@/components/skill-source';
+
+> **Outside the normal flow** — mainly for users with signing keys, where the agent can't run the commit itself. Not referenced in the AGENTS.md template.
+
+- Stages **only** the files the agent changed — never `git add -A` — safe in shared repos and worktrees.
+- Writes a commit message matching the repo's history style (prefix, scope, capitalization).
+- Leaves the actual `git commit --no-edit` to you.
+
+### Skill Source
+
+<SkillSource name="prepare-commit" />

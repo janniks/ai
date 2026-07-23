@@ -15,19 +15,21 @@ npx skills add janniks/ai
 
 ---
 
-Or install single skills:
+Or install a single skill with `npx skills add janniks/ai/<name>`. Every shipped skill has a page below.
 
-**create-spec:** Creates a spec through user interview, codebase exploration, and module design, then saves to `./specs/<feature>.md`.
-
-```bash
-npx skills add janniks/ai/create-spec
-```
-
-**refine-spec:** Deepens an existing spec toward a half-implementation — interface shapes, code examples, size estimates, and vertical slices — under a `## Refinement` section.
-
-```bash
-npx skills add janniks/ai/refine-spec
-```
+<Cards>
+  <Card title="create-spec" href="/docs/skills/create-spec" description="Create a spec through interview, exploration, and module design." />
+  <Card title="refine-spec" href="/docs/skills/refine-spec" description="Deepen a spec toward a half-implementation with vertical slices." />
+  <Card title="implement" href="/docs/skills/implement" description="Execute a spec slice by slice, with TDD and review per commit." />
+  <Card title="tdd" href="/docs/skills/tdd" description="Test-driven development — red-green-refactor." />
+  <Card title="code-review" href="/docs/skills/code-review" description="Review changes along Standards and Spec axes in parallel." />
+  <Card title="diagnosing-bugs" href="/docs/skills/diagnosing-bugs" description="A diagnosis loop for hard bugs and performance regressions." />
+  <Card title="prototype" href="/docs/skills/prototype" description="Build a throwaway prototype to answer a design question." />
+  <Card title="find-conventions" href="/docs/skills/find-conventions" description="Distill a codebase's conventions into CONVENTIONS.md." />
+  <Card title="human-review" href="/docs/skills/human-review" description="Human-paced file review whose corrections become rules." />
+  <Card title="improve-codebase-architecture" href="/docs/skills/improve-codebase-architecture" description="Find deepening opportunities and grill through your pick." />
+  <Card title="prepare-commit" href="/docs/skills/prepare-commit" description="Stage the agent's own changes for signing-key users." />
+</Cards>
 
 ## Prompts
 
@@ -37,11 +39,3 @@ npx skills add janniks/ai/refine-spec
 ## References
 
 - [Agent Skills](https://agentskills.io/)
-
-{/* ## What's next? */}
-
-{/* <Cards>
-  <Card title="Workflow" href="/docs/workflow" />
-   <Card title="create-spec" href="/docs/skills/create-spec" />
-   <Card title="refine-spec" href="/docs/skills/refine-spec" />
-</Cards> */}
